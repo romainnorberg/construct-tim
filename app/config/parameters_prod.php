@@ -14,6 +14,6 @@ $container->setParameter('database_password', $secrets['MYSQL']['PASSWORD']);
 # mailer
 $container->setParameter('mailer_transport', 'smtp');
 $container->setParameter('mailer_host', $secrets['CUSTOM']['MAILER_HOST']);
-$container->setParameter('mailer_user', $secrets['CUSTOM']['MAILER_USER'];
+$container->setParameter('mailer_user', $secrets['CUSTOM']['MAILER_USER']);
 $container->setParameter('mailer_password', $secrets['CUSTOM']['MAILER_PASSWORD']);
 $container->setParameter('mailer_sender', $secrets['CUSTOM']['MAILER_SENDER']);
