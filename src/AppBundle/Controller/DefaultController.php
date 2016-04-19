@@ -16,7 +16,7 @@ class DefaultController extends Controller
   public function indexAction(Request $request)
   {
     return $this->render(
-      'AppBundle:index.html.twig'
+      'AppBundle::index.html.twig'
     );
   }
 
@@ -42,7 +42,7 @@ class DefaultController extends Controller
     }
 
     return $this->render(
-      'AppBundle:contact.html.twig',
+      'AppBundle::contact.html.twig',
       [
         'contactForm' => $form->createView()
       ]
@@ -52,7 +52,7 @@ class DefaultController extends Controller
   private function sendMail($body){
       $mail = \Swift_Message::newInstance()
         ->setSubject('test mail')
-        ->setFrom('someone@somewhere.com')
+        ->setFrom('bot@construct-tim.be')
         ->setTo('romainnorberg@gmail.com')
         ->setBody('message body goes here ' . $body)
       ;
