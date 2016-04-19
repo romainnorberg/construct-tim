@@ -14,3 +14,8 @@ Run:
  - npm install
  - php app/console assets:install --symlink && grunt symlink
  - grunt && grunt watch
+
+### Performance
+
+- composer dump-autoload --optimize
+- 
