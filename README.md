@@ -10,12 +10,14 @@ Environment production vars are stored in a remote file, read more: https://help
 ### First installation
 
 Run:
- - bower install
- - npm install
+ - cp app/config/parameters.yml.dist app/config/parameters.yml
+ - composer install
+ - sudo npm install -g bower
+ - sudo npm install -g grunt-cli
  - php app/console assets:install --symlink && grunt symlink
  - grunt && grunt watch
 
 ### Performance
 
 - composer dump-autoload --optimize
-- 
+-
