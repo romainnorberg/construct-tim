@@ -9,6 +9,7 @@ before_script:
   - npm install -g bower
   - bower install
   - npm install -g grunt-cli
+  - npm install
   - php app/console assets:install --symlink && grunt symlink
   - grunt
 
