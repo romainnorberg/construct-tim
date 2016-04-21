@@ -1,5 +1,3 @@
-.DS_Store
-
 /logs/
 /web/bundles/
 /app/bootstrap.php.cache
