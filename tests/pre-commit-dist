@@ -1,37 +1,18 @@
-#!/usr/bin/php
-<?php
-// http://masnun.com/2012/03/18/running-phpunit-on-git-hook.html
-// http://rmurphey.com/blog/2014/07/13/unit-tests
-// Hook configuration
-$project = 'Construct-tim';
+#!/bin/bash
 
-// Tell the commiter what the hook is doing
-echo PHP_EOL;
-echo '+ Starting unit tests'.PHP_EOL;
+exec < /dev/tty
+sudo phpunit
+#Get the last processes exit code
+rc=$?
+if [[ $rc != 0 ]] ; then
+    echo -n "It looks like some of your tests failed. Would you like to see a more detailed test output? (y/n) "
+    read YN
+    if [ -z "$YN" ]; then
+        exit $rc;
+    elif [ "$YN" != "y" ]; then
+        exit $rc;
+    fi
+    sudo phpunit --verbose
+fi
 
-// Execute project unit tests
-exec('phpunit', $output, $returnCode);
-
-// if the build failed, output a summary and fail
-if ($returnCode !== 0)
-{
-    // find the line with the summary; this might not be the last
-    while (($minimalTestSummary = array_pop($output)) !== null)
-    {
-        if (strpos($minimalTestSummary, 'Tests:') !== false)
-        {
-            break;
-        }
-    }
-
-    // output the status and abort the commit
-    echo '+ Test suite for '.$project.' failed:'.PHP_EOL;
-    echo $minimalTestSummary;
-    echo chr(27).'[0m'.PHP_EOL; // disable colors and add a line break
-    echo PHP_EOL;
-    exit(1);
-}
-
-echo '+ All tests for '.$project.' passed.'.PHP_EOL;
-echo PHP_EOL;
-exit(0);
+exit $rc;

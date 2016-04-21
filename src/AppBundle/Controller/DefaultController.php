@@ -15,8 +15,6 @@ class DefaultController extends Controller
    */
   public function indexAction(Request $request)
   {
-    throw new Exception("Test precommit phpunit", 1);
-
     return $this->render(
       'AppBundle::index.html.twig'
     );
