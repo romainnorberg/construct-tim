@@ -1,5 +1,6 @@
 .DS_Store
 
+/logs/
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
@@ -15,3 +16,5 @@
 
 /node_modules
 /web/vendor
+
+app/config/_set_env_vars.php
