@@ -1,6 +1,9 @@
 <?php
 
-require_once('_set_env_vars.php');
+$include_env_vars_file = dirname(__FILE__).'/_set_env_vars.php';
+if(file_exists($include_env_vars_file)){
+  include($include_env_vars_file);
+}
 
 # mailer
 $container->setParameter('mailer_transport', 'smtp');
