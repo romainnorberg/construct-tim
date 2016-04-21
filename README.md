@@ -22,6 +22,10 @@ Run:
   - php app/console assets:install --symlink && grunt symlink
   - grunt && grunt watch
 
+Optional:
+  - cp tests/pre-commit-dist .git/hooks/pre-commit
+  - chmod a+x .git/hooks/pre-commit
+
 ### Performance
 
 - composer dump-autoload --optimize
