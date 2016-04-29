@@ -15,4 +15,6 @@
 /node_modules
 /web/vendor
 
+**/.sass-cache/*
+
 app/config/_set_env_vars.php

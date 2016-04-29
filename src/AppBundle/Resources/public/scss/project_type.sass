@@ -1,0 +1,61 @@
+@import "_variables"
+@import "_functions"
+
+.navbar
+  margin-bottom: 0
+
+section.carousel, .item, .active, .carousel-inner
+  height: 280px
+  position: relative
+
+.fill
+  width: 100%
+  height: 100%
+  background-position: center
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  background-size: cover
+  -o-background-size: cover
+
+.content.html
+  h2
+    font-size: 22px
+    margin: 20px 0
+    color: $color-gray-dark
+  ul
+    margin-left: 100px
+  .infos-and-contact
+    margin: 10px 0
+    .container
+      width: 100%
+      .col-lg-6.col-lg-offset-3
+        width: 100%
+        margin-left: 0
+        float: none
+    .need-info
+      border: 2px solid $color-gray-lighter
+      text-align: center
+      padding: 10px 10px
+      color: $color-brand-primary
+      p
+        color: $color-brand-primary
+      .tel
+        margin: 8px 0
+        padding-bottom: 5px
+        color: $color-brand-primary
+        font-size: 2em
+        font-weight: bold
+        a
+          text-decoration: none
+          color: $color-brand-primary
+          font-size: 1.2em
+          @media screen and (max-width: $break-width-medium)
+            font-size: 1em
+      .btn
+        background: transparent
+        border: 1px solid $color-brand-primary
+        color: $color-brand-primary
+        font-weight: bold
+        font-size: 1.3em
+        &:hover
+          text-decoration: none

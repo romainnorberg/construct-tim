@@ -1,0 +1,375 @@
+@import "bootstrap"
+
+@import "_variables"
+@import "_functions"
+
+@font-face
+  font-family: 'socicon'
+  src: url('/fonts/socicon.eot')
+  src: url('/fonts/socicon.eot?#iefix') format("embedded-opentype"), url('/fonts/socicon.woff') format("woff"), url('/fonts/socicon.ttf') format("truetype"), url('/fonts/socicon.svg#sociconregular') format("svg")
+  font-weight: normal
+  font-style: normal
+  text-transform: initial
+
+body
+  padding: 0
+  margin: 0
+  height: 100%
+  font-family: 'Raleway', sans-serif
+  font-weight: 300
+  font-size: 16px
+  color: #555555
+  line-height: 28px
+
+a, button
+  outline: medium none !important
+  text-decoration: none !important
+
+a
+  color: #424242
+
+b, strong
+  font-weight: 600
+
+ul
+  margin: 0
+  padding: 0
+
+img
+  height: auto
+  max-width: 100%
+
+h1, h2, h3, h4, h5, h6
+  font-family: "Raleway", sans-serif
+  font-weight: 200
+  color: #161616
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small
+  font-family: "Raleway", sans-serif
+  color: #121212
+
+h1, h2.title
+  color: #fff
+  background-color: $color-brand-primary
+  font-size: 20px
+  letter-spacing: 0.3px
+  display: table
+  position: relative
+  margin: 20px 15px
+  padding: 10px 18px
+  &:after
+    position: absolute
+    content: ''
+    top: -30px
+    left: -8px
+    width: 2%
+    height: 300%
+    background: #87c8ca
+    opacity: 0.3
+    z-index: -2
+    @media screen and (max-width: $break-width-medium)
+      display: none
+  span
+    display: inline-block
+    transform: skew(15deg)
+    -o-transform: skew(15deg)
+    -moz-transform: skew(15deg)
+    -webkit-transform: skew(15deg)
+  small
+    font-size: 66px
+
+h2
+  position: relative
+  width: auto
+  height: auto
+  font-size: 30px
+  font-weight: 900
+  text-transform: uppercase
+  padding-top: 0
+  margin-top: 0
+
+h3
+  font-size: 22px
+  font-weight: 600
+  small
+    font-size: 20px
+
+
+/* NAV BAR
+.navbar
+  height: $navbar-height
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3)
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3)
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3)
+  background: rgba(255, 255, 255, 0.95)
+  transition: box-shadow 0.5s cubic-bezier(0, 0, 0.15, 0.96) 0s, opacity 0.3s ease 0s, min-height 0.4s ease 0s
+  @media screen and (max-width: $break-width-medium)
+    height: 40px
+  background-color: #fff
+  border-bottom: none
+  font-size: 0.9em
+  text-transform: uppercase
+  color: $color-brand-secondary
+  @media screen and (max-height: $break-height-small)
+    height: 30px
+    min-height: 30px
+  &.normal
+    @include transition(all, 0.5s)
+    .navbar-left
+      @include transition(all, 0.5s)
+
+  .navbar-brand
+    max-height: $navbar-height
+    width: 350px
+    padding: 0
+    @include transition(all, 0.5s)
+    img
+      width: 90%
+    @media screen and (max-width: $break-width-medium)
+      width: 250px
+    @media screen and (max-height: $break-height-small)
+      width: 170px
+
+  .navbar-collapse
+    @media screen and (min-width: $break-width-medium)
+      ul
+        margin-top: 10px
+        li
+          &:hover
+            border-bottom: 2px solid $color-brand-primary
+    @media screen and (max-width: $break-width-medium) and (min-width: $break-width-small) and (max-height: $break-height-small)
+      background-color: #fff
+      position: absolute
+      z-index: 9
+      ul.nav
+        padding-top: 0px
+        margin-top: 5px
+        li
+          float: left
+          width: 50%
+          font-size: 1.4em
+          a
+            padding: 10px 4px
+    @media screen and (max-width: $break-width-medium) and (min-width: $break-width-small) and (min-height: $break-height-small)
+      ul.nav
+        li
+          a
+            padding: 7px 6px
+    @media screen and (max-width: $break-width-medium) and (orientation:landscape), screen and (max-width: $break-width-small) and (orientation:portrait)
+      background-color: #fff
+      position: absolute
+      z-index: 9
+      ul.nav
+        padding-top: 5px
+        li
+          float: left
+          width: 50%
+          font-size: 1.4em
+
+  .navbar-toggle
+    @media screen and (max-height: $break-height-small)
+      padding: 1px 5px
+
+.navbar-default .navbar-nav > li > a
+  color: #000
+
+/* CONTENT */
+
+.main-title
+  transform: skew(-25deg)
+  -o-transform: skew(-25deg)
+  -moz-transform: skew(-25deg)
+  -webkit-transform: skew(-25deg)
+
+ol.breadcrumb
+  background-color: transparent
+  font-size: 0.9em
+  li
+    a
+      color: $color-gray-light
+      text-decoration: none
+    &.active
+      a
+        color: $color-gray-dark
+        font-weight: bold
+
+/* FOOTER */
+footer
+  overflow: hidden
+  text-align: center
+  padding: 40px 0 10px
+  background: $color-brand-primary
+  color: #fff
+  .logo
+    float: none
+    line-height: normal
+    padding-bottom: 30px
+    @media screen and (max-width: $break-width-medium)
+      padding: 20px 40px
+    @media screen and (max-width: $break-width-large)
+      padding: 20px 80px
+  p
+    color: #ffffff
+    margin: 0
+    padding: 15px 0 0
+    font-size: 12px
+  a,
+  a:hover
+    color: #ffffff
+    transition: all 250ms linear
+    -o-transition: all 250ms linear
+    -ms-transition: all 250ms linear
+    -moz-transition: all 250ms linear
+    -webkit-transition: all 250ms linear
+  h3.phone
+    font-size: 2em
+    color: #fff
+    a, a:hover
+      color: #fff
+    @media screen and (max-width: $break-width-medium)
+      font-size: 1.6em
+  .socials
+    margin: 25px 0
+    text-align: center
+    .socicon
+      text-decoration: none
+      padding: 10px
+      margin: 0 10px
+      width: 46px
+      height: 46px
+      border-radius: 23px
+      border: 3px solid #fff
+      font-family: 'socicon' !important
+      font-weight: 500
+      font-size: 20px
+      color: #fff
+      -webkit-transition: all 0.2s ease-in-out
+      -o-transition: all 0.2s ease-in-out
+      transition: all 0.2s ease-in-out
+      &:nth-child(1)
+        &:hover
+          color: #0077B5
+          border-color: #0077B5
+      &:nth-child(2)
+        &:hover
+          color: #dd4b39
+          border-color: #dd4b39
+
+/* SIGN RN
+#sign_rn_button
+  background: url("/images/frontend/static/sign_rn_button.png") no-repeat scroll 0 0 transparent
+  height: 24px
+  transition: background-position 100ms ease-in 0s
+  width: 24px
+  position: fixed
+  z-index: 1
+  bottom: 10px
+  right: 12px
+  z-index: 100
+  display: none
+  &:hover
+    background-position: 0 -26px
+  @media screen and (min-width: $break-width-medium)
+    display: block
+
+
+/* references */
+section.reference
+  padding: 50px 0
+  .ff-container
+    width: 100%
+    .filters
+      text-align: center
+      label
+        height: 30px
+        cursor: pointer
+        color: #777
+        background: #ffffff
+        padding: 0 10px
+        font-weight: normal
+      input
+        &.ff-selector-type-all:checked ~ label.ff-label-type-all, &.ff-selector-type-1:checked ~ label.ff-label-type-1, &.ff-selector-type-2:checked ~ label.ff-label-type-2, &.ff-selector-type-3:checked ~ label.ff-label-type-3, &.ff-selector-type-4:checked ~ label.ff-label-type-4
+          background: $color-brand-primary-light
+          color: #fff
+        display: none
+
+    ul.ff-items
+      width: 100%
+      list-style: none
+      li
+        width: 33.33333%
+        float: left
+        @media screen and (max-width: $break-width-medium)
+          width: 50%
+        @media screen and (max-width: $break-width-small)
+          width: 100%
+        img
+          display: block
+        margin: 0px
+        -webkit-transition: opacity 0.6s ease-in-out
+        -moz-transition: opacity 0.6s ease-in-out
+        -o-transition: opacity 0.6s ease-in-out
+        -ms-transition: opacity 0.6s ease-in-out
+        transition: opacity 0.6s ease-in-out
+        a
+          display: block
+          position: relative
+          background: #fff
+          margin: 4px
+          .title
+            display: block
+            background: rgba($color-brand-primary-light, 0.8)
+            color: #fff
+            font-weight: bold
+            position: absolute
+            width: 100%
+            padding-top: 30px
+            height: 0px
+            overflow: hidden
+            opacity: 0
+            text-align: center
+            -webkit-transition: all 0.3s ease-in-out
+            -moz-transition: all 0.3s ease-in-out
+            -o-transition: all 0.3s ease-in-out
+            -ms-transition: all 0.3s ease-in-out
+            transition: all 0.3s ease-in-out
+            p.place
+              font-weight: normal
+              @media screen and (max-width: $break-width-large)
+                display: none
+            p.rtitle
+              font-weight: bold
+              font-size: 1.8em
+              padding: 0 40px
+              @media screen and (max-width: $break-width-large) and (min-width: $break-width-medium)
+                font-size: 1.0em
+            p
+              .btn
+                background-color: #fff
+                color: $color-brand-primary
+                border-radius: 0
+          &:hover .title
+            height: 100%
+            opacity: 1
+
+    & input
+      &.ff-selector-type-all:checked ~ .ff-items li, &.ff-selector-type-1:checked ~ .ff-items .ff-item-type-1, &.ff-selector-type-2:checked ~ .ff-items .ff-item-type-2, &.ff-selector-type-3:checked ~ .ff-items .ff-item-type-3, &.ff-selector-type-4:checked ~ .ff-items .ff-item-type-4
+        opacity: 1
+      &.ff-selector-type-1:checked ~ .ff-items li:not(.ff-item-type-1), &.ff-selector-type-2:checked ~ .ff-items li:not(.ff-item-type-2), &.ff-selector-type-3:checked ~ .ff-items li:not(.ff-item-type-3), &.ff-selector-type-4:checked ~ .ff-items li:not(.ff-item-type-4)
+        opacity: 0.1
+      &.ff-selector-type-1:checked ~ .ff-items li:not(.ff-item-type-1) span, &.ff-selector-type-2:checked ~ .ff-items li:not(.ff-item-type-2) span, &.ff-selector-type-3:checked ~ .ff-items li:not(.ff-item-type-3) span, &.ff-selector-type-4:checked ~ .ff-items li:not(.ff-item-type-4) span
+        display: none
+
+.my-gallery figcaption
+  display: none
+
+/* blog post preview */
+section.blog
+  h3
+    margin-top: 0
+
+@import "page"
+@import "post"
+@import "project_type"
+@import "project"
+@import "homepage"
