@@ -1,0 +1,118 @@
+@import "_variables"
+@import "_functions"
+
+
+section.contact
+  padding: 50px 0
+  #forms
+    input, textarea
+      border: 1px solid #eeeeee
+      -webkit-border-radius: 5px
+      -moz-border-radius: 5px
+      border-radius: 5px
+      color: #222222
+      font-size: 18px
+      font-weight: 300
+      height: auto
+      width: 100%
+      letter-spacing: 0.5px
+      margin-bottom: 18px
+      outline: none
+      padding: 10px 15px 10px
+      transition: all 300ms linear
+      -o-transition: all 300ms linear
+      -ms-transition: all 300ms linear
+      -moz-transition: all 300ms linear
+      -webkit-transition: all 300ms linear
+
+  #comment-form
+    input, textarea
+      border: 1px solid #eeeeee
+      -webkit-border-radius: 5px
+      -moz-border-radius: 5px
+      border-radius: 5px
+      color: #222222
+      font-size: 18px
+      font-weight: 300
+      height: auto
+      width: 100%
+      letter-spacing: 0.5px
+      margin-bottom: 18px
+      outline: none
+      padding: 10px 15px 10px
+      transition: all 300ms linear
+      -o-transition: all 300ms linear
+      -ms-transition: all 300ms linear
+      -moz-transition: all 300ms linear
+      -webkit-transition: all 300ms linear
+
+  #forms
+    select
+      border: 1px solid #eeeeee
+      -webkit-border-radius: 5px
+      -moz-border-radius: 5px
+      border-radius: 5px
+      color: #222222
+      font-size: 18px
+      font-weight: 300
+      height: auto
+      width: 100%
+      letter-spacing: 0.5px
+      margin-bottom: 18px
+      outline: none
+      padding: 10px 15px 10px
+      transition: all 300ms linear
+      -o-transition: all 300ms linear
+      -ms-transition: all 300ms linear
+      -moz-transition: all 300ms linear
+      -webkit-transition: all 300ms linear
+      height: 50px
+    textarea
+      height: 185px
+      margin-bottom: 0
+
+  #comment-form textarea
+    height: 185px
+    margin-bottom: 0
+
+  #forms button.send, #comment-form button.send
+    width: auto
+    border-radius: 0
+    background-color: $color-brand-primary-light
+    color: #fff
+    text-align: left
+    padding: 20px
+    font-weight: bold
+    font-size: 1.3em
+
+  #forms
+    input:hover, textarea:hover, input:focus, textarea:focus
+      border-color: #404040
+
+  #comment-form
+    input:hover, textarea:hover, input:focus, textarea:focus
+      border-color: #404040
+
+  #forms .required:after, #comment-form .required:after
+    content: "Required field"
+    font-size: 14px
+    opacity: 0
+    pointer-events: none
+    position: absolute
+    right: 25px
+    top: 10px
+    transition: all 0.2s ease 0s
+    z-index: 15
+
+  #forms .required.error:after, #comment-form .required.error:after
+    opacity: 1
+
+  .notification
+    display: none
+    cursor: pointer
+
+
+section.map
+  #map-canvas-general
+    width: 100%
+    height: 350px

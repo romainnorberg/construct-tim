@@ -15230,7 +15230,7 @@ _registerModule('History', {
  * http://modernizr.com/download/?-svg-setclasses !*/
 !function(e,n,s){function o(e,n){return typeof e===n}function a(){var e,n,s,a,t,l,r;for(var c in i)if(i.hasOwnProperty(c)){if(e=[],n=i[c],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(s=0;s<n.options.aliases.length;s++)e.push(n.options.aliases[s].toLowerCase());for(a=o(n.fn,"function")?n.fn():n.fn,t=0;t<e.length;t++)l=e[t],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),f.push((a?"":"no-")+r.join("-"))}}function t(e){var n=r.className,s=Modernizr._config.classPrefix||"";if(c&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");n=n.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(n+=" "+s+e.join(" "+s),c?r.className.baseVal=n:r.className=n)}var i=[],l={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var s=this;setTimeout(function(){n(s[e])},0)},addTest:function(e,n,s){i.push({name:e,fn:n,options:s})},addAsyncTest:function(e){i.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var f=[],r=n.documentElement,c="svg"===r.nodeName.toLowerCase();Modernizr.addTest("svg",!!n.createElementNS&&!!n.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect),a(),t(f),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();e.Modernizr=Modernizr}(window,document);
 (function() {
-  var initPhotoSwipeFromDOM, initialize;
+  var gmap_container, initPhotoSwipeFromDOM, initialize;
 
   $(document).ready(function() {
     var imgs;
@@ -15261,6 +15261,68 @@ _registerModule('History', {
       }), 'xml');
     });
   });
+
+  gmap_container = 'map-canvas-general';
+
+  if ($('#' + gmap_container).length) {
+    initialize = function() {
+      var image, map, mapOptions, marker, myLatlng, styledMap, styles;
+      styles = [
+        {
+          stylers: [
+            {
+              hue: '#00ffe6'
+            }, {
+              saturation: -100
+            }
+          ]
+        }, {
+          featureType: 'road',
+          elementType: 'geometry',
+          stylers: [
+            {
+              lightness: 0
+            }, {
+              'gamma': 1.18
+            }, {
+              visibility: 'simplified'
+            }
+          ]
+        }, {
+          featureType: 'road',
+          elementType: 'labels',
+          stylers: [
+            {
+              visibility: 'off'
+            }
+          ]
+        }
+      ];
+      styledMap = new google.maps.StyledMapType(styles, {
+        name: 'Styled Map'
+      });
+      image = '/images/frontend/static/map/map-marker.png';
+      myLatlng = new google.maps.LatLng(50.468376, 4.987975);
+      mapOptions = {
+        zoom: 10,
+        scrollwheel: false,
+        center: myLatlng,
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+        }
+      };
+      map = new google.maps.Map(document.getElementById(gmap_container), mapOptions);
+      marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        icon: image,
+        title: 'Construct-Tim'
+      });
+      map.mapTypes.set('map_style', styledMap);
+      map.setMapTypeId('map_style');
+    };
+    google.maps.event.addDomListener(window, 'load', initialize);
+  }
 
   initPhotoSwipeFromDOM = function(gallerySelector) {
     var closest, galleryElements, hashData, i, l, onThumbnailsClick, openPhotoSwipe, parseThumbnailElements, photoswipeParseHash;
@@ -15449,64 +15511,5 @@ _registerModule('History', {
       clickEvent = false;
     });
   });
-
-  initialize = function() {
-    var image, map, mapOptions, marker, myLatlng, styledMap, styles;
-    styles = [
-      {
-        stylers: [
-          {
-            hue: '#00ffe6'
-          }, {
-            saturation: -100
-          }
-        ]
-      }, {
-        featureType: 'road',
-        elementType: 'geometry',
-        stylers: [
-          {
-            lightness: 0
-          }, {
-            'gamma': 1.18
-          }, {
-            visibility: 'simplified'
-          }
-        ]
-      }, {
-        featureType: 'road',
-        elementType: 'labels',
-        stylers: [
-          {
-            visibility: 'off'
-          }
-        ]
-      }
-    ];
-    styledMap = new google.maps.StyledMapType(styles, {
-      name: 'Styled Map'
-    });
-    image = '/images/frontend/static/map/map-marker.png';
-    myLatlng = new google.maps.LatLng(50.468376, 4.987975);
-    mapOptions = {
-      zoom: 10,
-      scrollwheel: false,
-      center: myLatlng,
-      mapTypeControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-      }
-    };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      icon: image,
-      title: 'Construct-Tim'
-    });
-    map.mapTypes.set('map_style', styledMap);
-    map.setMapTypeId('map_style');
-  };
-
-  google.maps.event.addDomListener(window, 'load', initialize);
 
 }).call(this);

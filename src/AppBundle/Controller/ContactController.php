@@ -16,12 +16,17 @@ class ContactController extends AppBundleBaseController
    */
   public function contactAction(Request $request){
     $form = $this->createFormBuilder()
-      ->add('name', TextType::class)
+      ->add('name', TextType::class, [
+        'attr'  => [
+          'placeholder' => 'Nom et prénom',
+          'required' => true
+        ]
+      ])
       ->add('submit', SubmitType::class, [
-          'label' => 'Submit Me Now!',
-          'attr'  => [
-              'class' => 'btn btn-success'
-          ]
+        'label' => 'Envoyer la demande',
+        'attr'  => [
+            'class' => 'btn send'
+        ]
       ])
       ->getForm();
 

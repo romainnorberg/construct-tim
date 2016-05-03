@@ -1,7 +1,124 @@
-{% extends 'AppBundle::base.html.twig' %}
+{% extends 'AppBundle::base_pages.html.twig' %}
 
-{% block body %}
-  {{ form_start(contactForm) }}
-  {{ form_widget(contactForm) }}
-  {{ form_end(contactForm) }}
+{% block content %}
+  <section class="contact">
+    <div class="container">
+      <!--Title-->
+      <div class="main-title">
+        <h1><span>Formulaire de contact</span></h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="panel">
+            <div class="panel-heading">
+              <h3><i class="icon-pushpin main-color"></i>Adresse</h3>
+            </div>
+            <div class="panel-body"><address><div class="row"><div class="col-xs-12 col-lg-12"><strong>Construct-Tim</strong><br /><strong>Wery Timothée</strong><br />Rue de Gawday, 43<br />5300 Maizeret <br />Belgique<br /><i class="glyphicon glyphicon-earphone"></i> +32 (0)475/92.14.48<br /><hr /></div></div></address>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading">
+              <h3><i class="icon-time main-color"></i>Heures d'ouverture</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Jours</th>
+                    <th>Heures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="success">
+                    <td>Lundi au vendredi</td>
+                    <td>7:00 > 18:00</td>
+                  </tr>
+                  <tr class="danger">
+                    <td>Samedi et Dimanche</td>
+                    <td>fermé (ou sur rendez-vous)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="panel">
+            <div class="panel-heading">
+              <div class="row"></div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <!--Heading-->
+            <div class="heading">
+              <h2>Besoin de conseils ou d'un devis personnalisé ?</h2>
+              <!--Text-->
+              <p>Remplissez notre formulaire, nous vous répondons dans les plus brefs délais</p>
+              <!--/Heading-->
+              <!--Contact form-->
+              <div class="margin-top70">
+                {{ form_start(contactForm, {'attr': {'id': 'forms'}}) }}
+                  <div class="row">
+                    <div class="col-md-6 required">
+                      {{ form_widget(contactForm.name) }}
+                    </div>
+                    <div class="col-md-6 required">
+                      <input id="email" name="email" placeholder="Adresse e-mail" required="required" type="email" value="" />
+                    </div>
+                    <div class="col-md-6 required">
+                      <input name="phone" placeholder="Téléphone" type="text" value="" />
+                    </div>
+                    <div class="col-md-6 required">
+                      <input name="city" placeholder="Ville" type="text" value="" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 required">
+                      <select name="request_type">
+                        <option>Demande de prix</option>
+                        <option>Autre</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 required">
+                      <select name="request_subject">
+                        <option>Construction</option>
+                        <option>Transformation</option>
+                        <option>Rénovation</option>
+                        <option>Autre</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 required">
+                      <input id="budget" name="budget" placeholder="Votre budget" type="text" value="" />
+                    </div>
+                    <div class="col-md-6 required">
+                      <input accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/pdf, image/*, .csv" id="photo" name="file" placeholder="Fichier joint" type="file" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12 required">
+                      <textarea cols="40" id="message" name="message" placeholder="Message / demande" required="required" value=""></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                      recaptcha
+                    </div>
+                    <div class="col-md-6 col-xs-6 text-center">
+                      {{ form_widget(contactForm.submit) }}
+                    </div>
+                  </div>
+                  <div class="notification"><span class="highlight"><i class="fa fa-check-circle"></i>Email successfully sent!</span>
+                  </div>
+                {{ form_end(contactForm) }}
+              </div>
+            </div>
+          </div>
+          <!--/Contact form-->
+        </div>
+      </div>
+      <hr />
+    </div>
+  </section>
 {% endblock %}

@@ -2,7 +2,12 @@
 
 {% block body %}
   {% block header %}
-
+    {{ include('AppBundle::partials/global/_header.html.twig') }}
   {% endblock %}
+
   {% block content %}{% endblock %}
+
+  {% block footer %}
+    {{ include('AppBundle::partials/global/_footer.html.twig') }}
+  {% endblock %}
 {% endblock %}

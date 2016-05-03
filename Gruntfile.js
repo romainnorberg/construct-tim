@@ -93,6 +93,13 @@ module.exports = function(grunt) {
             "uglify": true,
             "tests" : ['svg']
           }
+        },
+        copy: {
+          fonts: {
+            files: [
+              {expand: true, flatten: true, src: ['web/vendor/bootstrap-sass/assets/fonts/bootstrap/*'], dest: 'web/built/app/fonts/bootstrap/', filter: 'isFile'}
+            ]
+          }
         }
     });
 
@@ -101,11 +108,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks("grunt-modernizr");
 
-    grunt.registerTask('default', ['buildcss', 'buildjs']);
+    grunt.registerTask('default', ['buildcss', 'buildjs', 'assets:install']);
     grunt.registerTask('buildcss', ['sass:dist', 'concat:css']);
     grunt.registerTask('buildjs', ['modernizr:dist', 'coffee:compile', 'concat:js', 'uglify']);
-    grunt.registerTask('assets:install', ['symlink']);
+    grunt.registerTask('assets:install', ['symlink', 'copy:fonts']);
 };
