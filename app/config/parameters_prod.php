@@ -20,3 +20,8 @@ $container->setParameter('mailer_sender', $secrets['CUSTOM']['MAILER_SENDER']);
 
 # locale
 $container->setParameter('locale', 'fr');
+
+# rollbar
+$container->setParameter('rollbar_server_access_token', $secrets['CUSTOM']['ROLLBAR_SERVER_ACCESS_TOKEN']);
+$container->setParameter('rollbar_client_access_token', $secrets['CUSTOM']['ROLLBAR_CLIENT_ACCESS_TOKEN']);
+$container->setParameter('rollbar_environment', $secrets['CUSTOM']['ROLLBAR_ENVIRONMENT']);

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d893f2e31aa700aeb938a7fd27c838f1",
-    "content-hash": "9805824ade9426c56ac1257cdbe6a428",
+    "hash": "33c7bb39a252d2f1acb2f06e05857b55",
+    "content-hash": "71e490fd1cb1baaef64fc66d9fbaa6aa",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -782,6 +782,117 @@
                 "User management"
             ],
             "time": "2015-09-15 13:15:07"
+        },
+        {
+            "name": "ftrrtf/rollbar-bundle",
+            "version": "0.15.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ftrrtf/FtrrtfRollbarBundle.git",
+                "reference": "b7682cbe37310389a1dd57b4b120cd484c961f6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ftrrtf/FtrrtfRollbarBundle/zipball/b7682cbe37310389a1dd57b4b120cd484c961f6d",
+                "reference": "b7682cbe37310389a1dd57b4b120cd484c961f6d",
+                "shasum": ""
+            },
+            "require": {
+                "ftrrtf/rollbar-notifier": "~1.0",
+                "php": ">=5.3",
+                "symfony/symfony": "^2.3"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpspec/phpspec": "^2.4",
+                "phpunit/phpunit": "^4.8",
+                "twig/extensions": "^1.3"
+            },
+            "suggest": {
+                "twig/extensions": "~1.1 – For twig rollbarjs extension"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Ftrrtf\\RollbarBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Valeriy Rabievskiy",
+                    "email": "dev@ftrrtf.com"
+                }
+            ],
+            "description": "Symfony2 Bundle for rollbar.com",
+            "keywords": [
+                "Symfony2",
+                "errors",
+                "rollbar"
+            ],
+            "time": "2016-02-08 21:36:08"
+        },
+        {
+            "name": "ftrrtf/rollbar-notifier",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ftrrtf/rollbar-notifier.git",
+                "reference": "48289a6444f8c181aa93bff28b028cd607ad1b63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ftrrtf/rollbar-notifier/zipball/48289a6444f8c181aa93bff28b028cd607ad1b63",
+                "reference": "48289a6444f8c181aa93bff28b028cd607ad1b63",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "symfony/options-resolver": ">=2.1,<3.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.*"
+            },
+            "suggest": {
+                "ext-curl": "cUrl extension for cUrl transport"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ftrrtf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Rue",
+                    "email": "brian@rollbar.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Valeriy Rabievskiy",
+                    "email": "dev@ftrrtf.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2014-07-21 19:36:52"
         },
         {
             "name": "incenteev/composer-parameter-handler",

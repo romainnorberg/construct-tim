@@ -20,6 +20,10 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
         );
 
+        if ($this->getEnvironment() == 'prod') {
+            $bundles[] = new \Ftrrtf\RollbarBundle\FtrrtfRollbarBundle();
+        }
+
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
