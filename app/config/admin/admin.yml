@@ -1,0 +1,8 @@
+easy_admin:
+  entities:
+    Page:
+      class: AppBundle\Entity\Page
+    User:
+      class: AppBundle\Entity\User
+      form:
+        fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']

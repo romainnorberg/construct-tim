@@ -17,3 +17,6 @@ $container->setParameter('mailer_host', $secrets['CUSTOM']['MAILER_HOST']);
 $container->setParameter('mailer_user', $secrets['CUSTOM']['MAILER_USER']);
 $container->setParameter('mailer_password', $secrets['CUSTOM']['MAILER_PASSWORD']);
 $container->setParameter('mailer_sender', $secrets['CUSTOM']['MAILER_SENDER']);
+
+# locale
+$container->setParameter('locale', 'fr');

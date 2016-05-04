@@ -17,4 +17,5 @@
 
 **/.sass-cache/*
 
+*.php~
 app/config/_set_env_vars.php
