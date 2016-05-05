@@ -26,4 +26,4 @@ script:
 notifications:
   email:
     -  romainnorberg@gmail.com
-  slack: romainnorberg:RcDTsGu9NKbp3yAM0wwVB3DO
+  slack: romain-norberg:AAraEIeAoipJXwSUDsDL5YOd

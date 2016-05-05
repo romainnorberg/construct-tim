@@ -12,12 +12,3 @@ framework:
 web_profiler:
     toolbar: false
     intercept_redirects: false
-
-doctrine:
-    dbal:
-        driver:   pdo_mysql
-        host:     127.0.0.1
-        dbname:   constructtim
-        user:     travis
-        password: ''
-        charset:  UTF8
