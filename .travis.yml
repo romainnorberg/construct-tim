@@ -1,5 +1,8 @@
 language: php
 
+services:
+  - mysql
+
 php:
     - 7.0
 
@@ -13,6 +16,9 @@ before_script:
   - npm install
   - php app/console assets:install --symlink && grunt symlink
   - grunt
+  - php app/console doctrine:database:create --env=test
+  - php app/console doctrine:schema:create --env=test
+  - php app/console doctrine:fixtures:load -n --env=test
 
 script:
   - phpunit
@@ -20,3 +26,4 @@ script:
 notifications:
   email:
     -  romainnorberg@gmail.com
+  slack: romainnorberg:RcDTsGu9NKbp3yAM0wwVB3DO

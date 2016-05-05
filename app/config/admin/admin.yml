@@ -2,7 +2,24 @@ easy_admin:
   entities:
     Page:
       class: AppBundle\Entity\Page
+      edit:
+        fields:
+          - name
+          - title
+          - content
+          - description
+          - keywords
+          - { property: 'is_active', label: 'Visible en ligne' }
+      new:
+        fields:
+          - name
+          - title
+          - { property: 'is_active' }
     User:
       class: AppBundle\Entity\User
       form:
         fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']
+  list:
+      actions:
+          - { name: 'show', icon: 'search' }
+          - { name: 'edit', icon: 'pencil' }

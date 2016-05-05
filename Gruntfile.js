@@ -11,7 +11,7 @@ module.exports = function(grunt) {
           }
         },
         sass: {
-            // this is the "production" Sass config used with the "grunt buildcss" command
+            // this is the "production" Sass config used with the "grunt buildCss" command
             dist: {
                 options: {
                     style: 'compressed',
@@ -19,6 +19,15 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'web/built/app/css/main.css': 'web/bundles/app/scss/main.sass'
+                }
+            },
+            fos_user: {
+                options: {
+                    style: 'compressed',
+                    loadPath: 'web/vendor/bootstrap-sass/assets/stylesheets'
+                },
+                files: {
+                    'web/built/app/css/fos_user.css': 'web/bundles/app/scss/fos_user.sass'
                 }
             }
         },
@@ -36,11 +45,11 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: 'web/bundles/app/scss/*.sass',
-                tasks: ['buildcss']
+                tasks: ['buildCss']
             },
             coffee: {
                 files: 'web/bundles/app/coffee/*.coffee',
-                tasks: ['buildjs']
+                tasks: ['buildJs']
             }
         },
         // concat
@@ -112,8 +121,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks("grunt-modernizr");
 
-    grunt.registerTask('default', ['buildcss', 'buildjs', 'assets:install']);
-    grunt.registerTask('buildcss', ['sass:dist', 'concat:css']);
-    grunt.registerTask('buildjs', ['modernizr:dist', 'coffee:compile', 'concat:js', 'uglify']);
+    grunt.registerTask('default', ['buildCss', 'buildJs', 'assets:install']);
+    grunt.registerTask('buildCss', ['sass:dist', 'concat:css', 'sass:fos_user']);
+    grunt.registerTask('buildJs', ['modernizr:dist', 'coffee:compile', 'concat:js', 'uglify']);
     grunt.registerTask('assets:install', ['symlink', 'copy:fonts']);
 };
