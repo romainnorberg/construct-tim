@@ -9,12 +9,12 @@ easy_admin:
           - content
           - description
           - keywords
-          - { property: 'is_active', label: 'Visible en ligne' }
+          - { property: 'active', label: 'Visible en ligne' }
       new:
         fields:
           - name
           - title
-          - { property: 'is_active' }
+          - { property: 'active' }
     User:
       class: AppBundle\Entity\User
       form:

@@ -27,7 +27,7 @@ class LoadPageData implements FixtureInterface, ContainerAwareInterface {
       $skill = new Page();
       $skill->setName('Test page');
       $skill->setTitle('Test àalo 8çé Pke-Koj');
-      $skill->setIsActive(false);
+      $skill->setActive(false);
 
       // On la persiste
       $manager->persist($skill);

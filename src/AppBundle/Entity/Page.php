@@ -67,9 +67,9 @@ class Page
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_active", type="boolean")
+     * @ORM\Column(name="active", type="boolean")
      */
-    private $is_active;
+    private $active;
 
     /**
      * @var \DateTime $created
@@ -236,29 +236,6 @@ class Page
     }
 
     /**
-     * Set is_active
-     *
-     * @param boolean $isActive
-     * @return Page
-     */
-    public function setIsActive($isActive)
-    {
-        $this->is_active = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * Get is_active
-     *
-     * @return boolean
-     */
-    public function getIsActive()
-    {
-        return $this->is_active;
-    }
-
-    /**
      * Set created
      *
      * @param \DateTime $created
@@ -302,5 +279,28 @@ class Page
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Page
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }
