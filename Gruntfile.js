@@ -74,7 +74,7 @@ module.exports = function(grunt) {
               'web/bundles/tmp/modernizr-custom.js',
               'web/bundles/tmp/main.js'
             ],
-            dest: 'web/built/app/js/main.js'
+            dest: 'web/built/app/js/main.min.js'
           },
           css: {
             src: [
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
         uglify: {
           dist: {
             files: {
-              'web/built/app/js/main.min.js': ['web/built/app/js/main.js']
+              'web/built/app/js/main.min.js': ['web/built/app/js/main.min.js']
             }
           }
         },

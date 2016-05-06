@@ -1,71 +1,10 @@
 {% extends 'AppBundle::base_homepage.html.twig' %}
 
 {% block content %}
-  <a name="about"></a>
-  <section class="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="main-title">
-                <h1><span><strong>A propos de Construct-Tim, entreprise générale en bâtiment sur Namur</strong></span></h1>
-              </div>
-              <div class="txt">
-                <p>La SPRL Construct-Tim est une entreprise générale en bâtiment qui propose des <strong>solutions pour la construction et la rénovation des bâtiments.</strong>
-                </p>
-                <p>Nous sommes basés à Andenne et nous déplaçons dans les provinces de <strong>Namur</strong> et du <strong>Brabant wallon</strong>.</p>
-              </div>
-              <hr />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6 service">
-              <a href="/projets/entreprise-construction-maison-batiment-namur-brabant-wallon"><img alt="Entrepreneur en construction à Namur et Brabant wallon" class="img-responsive" src="/images/frontend/static/about/a_propos_gros_oeuvre.jpg" />
-                <h2>Nouvelles constructions</h2>
-                <p class="services-description">Entrepreneur en construction à Namur et Brabant wallon
-                </p>
-              </a>
-            </div>
-            <div class="col-sm-6 service">
-              <a href="/projets/entreprise-extension-annexe-batiment-namur-brabant-wallon"><img alt="Extensions et annexes de bâtiment en Brabant et à Namur" class="img-responsive" src="/images/frontend/static/about/a_propos_transformation.jpg" />
-                <h2>Extensions de bâtiment</h2>
-                <p class="services-description">Construct-Tim vous conseille pour apporter les meilleures solutions techniques, thermiques et budgétaires à votre projet d’extension.
-                </p>
-              </a>
-            </div>
-            <div class="col-sm-6 service">
-              <a href="/projets/entreprise-renovation-maison-batiment-coaching-namur-brabant-wallon"><img alt="Rénovation de maisons et bâtiments à Namur et en Brabant wallon" class="img-responsive" src="/images/frontend/static/about/a_propos_renovation.jpg" />
-                <h2>Rénovation</h2>
-                <p class="services-description">Construct Tim prend en charge la totalité de votre projet de rénovation en Wallonie, dans tous ses aspects. Demandez un devis !
-                </p>
-              </a>
-            </div>
-            <div class="col-sm-6 service">
-              <a href="/projets/entreprise-generale-batiment-egouttage-assainissement-namur-brabant-wallon"><img alt="Société de travaux extérieurs et intérieurs en Belgique" class="img-responsive" src="/images/frontend/static/about/a_propos_divers.jpg" />
-                <h2>Divers</h2>
-                <p class="services-description">Vous avez des travaux en tous genres à effectuer dans votre bâtiment. Faites confiance à Construct Tim.
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="infos-and-contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <div class="need-info">
-            <p>Question ? Demande de devis ? Contactez-nous !</p>
-            <div class="tel"><span class="glyphicon glyphicon-phone"></span><a href="tel:+32(0)475921448"> +32 (0)475/92.14.48</a>
-            </div><a class="btn" href="{{ path('contact') }}">Nous contacter</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  {{ include('AppBundle::partials/homepage/_about.html.twig') }}
+
+  {{ include('AppBundle::partials/homepage/_contact_banner.html.twig') }}
+
   <a name="valeurs"></a>
   <section class="valeurs">
     <div class="container">
@@ -101,54 +40,9 @@
       </div>
     </div>
   </section>
-  <section class="testimonial">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="carousel slide" data-interval="3000" data-ride="carousel" id="fade-quote-carousel">
-            <!--Carousel indicators-->
-            <ol class="carousel-indicators">
-              <li class="active" data-slide-to="0" data-target="#fade-quote-carousel"></li>
-              <li data-slide-to="1" data-target="#fade-quote-carousel"></li>
-              <li data-slide-to="2" data-target="#fade-quote-carousel"></li>
-            </ol>
-            <!--Carousel items-->
-            <div class="carousel-inner">
-              <div class="active item">
-                <div class="author"><a href="/entreprise-generale-batiment-egouttage-assainissement-namur-brabant-wallon/projets/reparation-suite-a-un-degat-incendie">Réparation suite à un dégât incendie</a>
-                </div>
-                <blockquote>
-                  <p>"Mon habitation en fin de construction a malheureusement subi un incendie. J'ai été dans l'obligation de trouver une entreprise qui sache rapidement s'occuper du démontage des murs endommagés et de la reconstruction de ceux-ci. Bien que n'étant pas basée à proximité, l'entreprise Construc-Tim a répondu directement présent pour s'occuper des travaux !</p>
-                  <p>L'équipe sympathique a réalisé l'entièreté de l'ouvrage rapidement, proprement et à un prix tout à fait raisonnable. Encore une fois je peux remercier le patron Timothée Wery pour le sérieux de son entreprise Guillaume Rochefort"</p>
-                </blockquote>
-              </div>
-              <div class="item">
-                <div class="author"><a href="/entreprise-generale-batiment-egouttage-assainissement-namur-brabant-wallon/projets/residence-tilleul-namur">Résidence tilleul Namur</a>
-                </div>
-                <blockquote>
-                  <p>"Construct Tim, une entreprise que nous recommandons pour la compétence de son personnel, ses prix concurrentiels, les conseils avisés du responsable Timothée Wéry Delpire M.""</p>
-                </blockquote>
-              </div>
-              <div class="item">
-                <div class="author"><a href="/entreprise-construction-maison-batiment-namur-brabant-wallon/projets/nouvelles-constructions-a-meux">Nouvelles constructions à Meux</a>
-                </div>
-                <blockquote>
-                  <p>"Avec construct-Tim, le gros œuvre s'est passé sans aucun soucis. Si c'était à refaire, nous signons tout de suite. Professionnalisme, timing respecté et sympathie.. Caroline et François de Meux"</p>
-                </blockquote>
-              </div>
-              <!--.item-->
-              <!--  .profile-circle-->
-              <!--    img.img-responsive src="/images/frontend/static/testimonial/testimonial-1.jpg" /-->
-              <!--  .author-->
-              <!--    | Romain & Stéphanie-->
-              <!--  blockquote-->
-              <!--    p Notre satisfaction envers Construct-Tim après réalisation de notre maison est de 100%. Nulla vitae elit libero, a /! pharetra augue. Curabitur blandit tempus porttitor.-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+  {{ include('AppBundle::partials/homepage/_testimonial.html.twig') }}
+
   <a name="reference"></a>
   <section class="reference">
     <div class="container">

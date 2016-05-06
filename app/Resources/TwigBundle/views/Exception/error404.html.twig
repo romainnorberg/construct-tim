@@ -1,0 +1,14 @@
+{% extends 'AppBundle::base_pages.html.twig' %}
+
+{% block content %}
+  <div class="container">
+    <div class="col-xs-8 col-xs-offset-2" style="margin-top: 100px;margin-bottom: 200px;">
+      <div class="main-title"><h1><span>Page non trouvée</span></h1></div>
+
+      <p>
+          La page demandée n'a pas pu être localisée.
+      </p>
+      <a href="{{ path('homepage') }}" class="btn btn-default">Revenir à la page d'accueil</a>
+    </div>
+  </div>
+{% endblock %}
