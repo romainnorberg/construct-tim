@@ -2,6 +2,11 @@ easy_admin:
   entities:
     Page:
       class: AppBundle\Entity\Page
+      label: 'Pages'
+      list:
+        title: %%entity_label%%
+      fields:
+        - { property: 'page_category', type: 'entity', type_options: { class: 'AppBundle\Entity\PageCategory'} }
       edit:
         fields:
           - name
@@ -10,16 +15,34 @@ easy_admin:
           - description
           - keywords
           - { property: 'active', label: 'Visible en ligne' }
+          - page_category
       new:
         fields:
           - name
           - title
-          - { property: 'active' }
+          - { property: 'active', label: 'Visible en ligne' }
+          - page_category
+    PageCategory:
+      class: AppBundle\Entity\PageCategory
+      label: 'Catégories de page'
+      list:
+        title: %%entity_label%%
     User:
       class: AppBundle\Entity\User
+      label: 'Utilisateurs'
+      list:
+        title: %%entity_label%%
       form:
         fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']
-  list:
-      actions:
-          - { name: 'show', icon: 'search' }
-          - { name: 'edit', icon: 'pencil' }
+    Project:
+      class: AppBundle\Entity\Project
+      label: 'Projets'
+      fields:
+        - { property: 'project_type', type: 'entity', type_options: { class: 'AppBundle\Entity\ProjectType'} }
+      list:
+        title: %%entity_label%%
+    ProjectType:
+      class: AppBundle\Entity\ProjectType
+      label: 'Types de projet'
+      list:
+        title: %%entity_label%%

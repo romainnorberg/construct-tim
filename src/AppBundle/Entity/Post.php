@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM,
     Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Page
+ * Post
  *
- * @ORM\Table(name="page")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageRepository")
+ * @ORM\Table(name="post")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Page
+class Post
 {
     /**
      * @var string
@@ -22,21 +22,6 @@ class Page
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
-
-    /**
-     * @var PageCategory
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PageCategory")
-     * @ORM\JoinColumn(name="page_category_id", referencedColumnName="id")
-     */
-    private $page_category;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
 
     /**
      * @var string
@@ -52,16 +37,9 @@ class Page
     private $slug;
 
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="content", type="text", nullable=true)
-     */
-    private $content;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
@@ -73,7 +51,21 @@ class Page
     private $keywords;
 
     /**
-     * @var boolean
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=true)
+     */
+    private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="labels", type="string", length=255, nullable=true)
+     */
+    private $labels;
+
+    /**
+     * @var bool
      *
      * @ORM\Column(name="active", type="boolean")
      */
@@ -95,6 +87,7 @@ class Page
      */
     private $updated;
 
+
     /**
      * Get id
      *
@@ -106,33 +99,10 @@ class Page
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Page
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Set title
      *
      * @param string $title
-     * @return Page
+     * @return Post
      */
     public function setTitle($title)
     {
@@ -155,7 +125,7 @@ class Page
      * Set slug
      *
      * @param string $slug
-     * @return Page
+     * @return Post
      */
     public function setSlug($slug)
     {
@@ -175,33 +145,10 @@ class Page
     }
 
     /**
-     * Set content
-     *
-     * @param string $content
-     * @return Page
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
-     * @return Page
+     * @return Post
      */
     public function setDescription($description)
     {
@@ -224,7 +171,7 @@ class Page
      * Set keywords
      *
      * @param string $keywords
-     * @return Page
+     * @return Post
      */
     public function setKeywords($keywords)
     {
@@ -244,10 +191,79 @@ class Page
     }
 
     /**
+     * Set content
+     *
+     * @param string $content
+     * @return Post
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set labels
+     *
+     * @param string $labels
+     * @return Post
+     */
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+
+        return $this;
+    }
+
+    /**
+     * Get labels
+     *
+     * @return string
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Post
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
-     * @return Page
+     * @return Post
      */
     public function setCreated($created)
     {
@@ -270,7 +286,7 @@ class Page
      * Set updated
      *
      * @param \DateTime $updated
-     * @return Page
+     * @return Post
      */
     public function setUpdated($updated)
     {
@@ -287,51 +303,5 @@ class Page
     public function getUpdated()
     {
         return $this->updated;
-    }
-
-    /**
-     * Set active
-     *
-     * @param boolean $active
-     * @return Page
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
-
-        return $this;
-    }
-
-    /**
-     * Get active
-     *
-     * @return boolean 
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * Set page_category
-     *
-     * @param \AppBundle\Entity\PageCategory $pageCategory
-     * @return Page
-     */
-    public function setPageCategory(\AppBundle\Entity\PageCategory $pageCategory = null)
-    {
-        $this->page_category = $pageCategory;
-
-        return $this;
-    }
-
-    /**
-     * Get page_category
-     *
-     * @return \AppBundle\Entity\PageCategory 
-     */
-    public function getPageCategory()
-    {
-        return $this->page_category;
     }
 }

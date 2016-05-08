@@ -1,2 +1,8 @@
 easy_admin:
   site_name: 'CT Administration'
+  design:
+    color_scheme: 'light'
+  list:
+      actions:
+          - { name: 'show', icon: 'search' }
+          - { name: 'edit', icon: 'pencil' }

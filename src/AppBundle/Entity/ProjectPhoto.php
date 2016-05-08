@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM,
     Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Page
+ * ProjectPhoto
  *
- * @ORM\Table(name="page")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageRepository")
+ * @ORM\Table(name="project_photo")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectPhotoRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Page
+class ProjectPhoto
 {
     /**
      * @var string
@@ -24,19 +24,12 @@ class Page
     private $id;
 
     /**
-     * @var PageCategory
+     * @var Project
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PageCategory")
-     * @ORM\JoinColumn(name="page_category_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Project")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
-    private $page_category;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
+    private $project;
 
     /**
      * @var string
@@ -52,16 +45,9 @@ class Page
     private $slug;
 
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="content", type="text", nullable=true)
-     */
-    private $content;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
@@ -73,11 +59,18 @@ class Page
     private $keywords;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="active", type="boolean")
      */
     private $active;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="cover", type="boolean")
+     */
+    private $cover;
 
     /**
      * @var \DateTime $created
@@ -95,6 +88,7 @@ class Page
      */
     private $updated;
 
+
     /**
      * Get id
      *
@@ -106,33 +100,33 @@ class Page
     }
 
     /**
-     * Set name
+     * Set projectId
      *
-     * @param string $name
-     * @return Page
+     * @param integer $projectId
+     * @return ProjectPhoto
      */
-    public function setName($name)
+    public function setProjectId($projectId)
     {
-        $this->name = $name;
+        $this->projectId = $projectId;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get projectId
      *
-     * @return string
+     * @return integer
      */
-    public function getName()
+    public function getProjectId()
     {
-        return $this->name;
+        return $this->projectId;
     }
 
     /**
      * Set title
      *
      * @param string $title
-     * @return Page
+     * @return ProjectPhoto
      */
     public function setTitle($title)
     {
@@ -155,7 +149,7 @@ class Page
      * Set slug
      *
      * @param string $slug
-     * @return Page
+     * @return ProjectPhoto
      */
     public function setSlug($slug)
     {
@@ -175,33 +169,10 @@ class Page
     }
 
     /**
-     * Set content
-     *
-     * @param string $content
-     * @return Page
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
-     * @return Page
+     * @return ProjectPhoto
      */
     public function setDescription($description)
     {
@@ -224,7 +195,7 @@ class Page
      * Set keywords
      *
      * @param string $keywords
-     * @return Page
+     * @return ProjectPhoto
      */
     public function setKeywords($keywords)
     {
@@ -244,10 +215,56 @@ class Page
     }
 
     /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return ProjectPhoto
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set cover
+     *
+     * @param boolean $cover
+     * @return ProjectPhoto
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    /**
+     * Get cover
+     *
+     * @return boolean
+     */
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
-     * @return Page
+     * @return ProjectPhoto
      */
     public function setCreated($created)
     {
@@ -270,7 +287,7 @@ class Page
      * Set updated
      *
      * @param \DateTime $updated
-     * @return Page
+     * @return ProjectPhoto
      */
     public function setUpdated($updated)
     {
@@ -290,48 +307,25 @@ class Page
     }
 
     /**
-     * Set active
+     * Set project
      *
-     * @param boolean $active
-     * @return Page
+     * @param \AppBundle\Entity\Project $project
+     * @return ProjectPhoto
      */
-    public function setActive($active)
+    public function setProject(\AppBundle\Entity\Project $project = null)
     {
-        $this->active = $active;
+        $this->project = $project;
 
         return $this;
     }
 
     /**
-     * Get active
+     * Get project
      *
-     * @return boolean 
+     * @return \AppBundle\Entity\Project 
      */
-    public function getActive()
+    public function getProject()
     {
-        return $this->active;
-    }
-
-    /**
-     * Set page_category
-     *
-     * @param \AppBundle\Entity\PageCategory $pageCategory
-     * @return Page
-     */
-    public function setPageCategory(\AppBundle\Entity\PageCategory $pageCategory = null)
-    {
-        $this->page_category = $pageCategory;
-
-        return $this;
-    }
-
-    /**
-     * Get page_category
-     *
-     * @return \AppBundle\Entity\PageCategory 
-     */
-    public function getPageCategory()
-    {
-        return $this->page_category;
+        return $this->project;
     }
 }
