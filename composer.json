@@ -3,6 +3,13 @@
     "description": "Construct-tim composer",
     "license": "proprietary",
     "type": "project",
+    "authors": [
+        {
+            "name": "Romain Norberg",
+            "email": "romainnorberg@gmail.com",
+            "homepage": "http://romainnorberg.be"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/"

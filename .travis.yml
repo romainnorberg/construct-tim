@@ -12,6 +12,7 @@ php:
 
 before_script:
   - ./app/config/setup/setup.sh
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then mkdir -p build/logs; fi
   - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then composer require --dev satooshi/php-coveralls; fi
 
 script:
@@ -23,4 +24,4 @@ notifications:
   slack: romain-norberg:AAraEIeAoipJXwSUDsDL5YOd
 
 after_success:
-    - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then php vendor/bin/coveralls -v --config .coveralls.yml; fi;
+    - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then coveralls -v --config .coveralls.yml; fi;
