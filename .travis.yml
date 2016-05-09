@@ -12,17 +12,15 @@ php:
 
 before_script:
   - ./app/config/setup/setup.sh
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then pip install --user codecov; fi;
 
 script:
-  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --whitelist --coverage-clover=coverage.xml; else phpunit; fi;
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --coverage-clover=clover.xml; else phpunit; fi;
 
-after_script:
-  - travis_retry php vendor/bin/coveralls -v
+after_success:
+    - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then codecov; fi;
 
 notifications:
   email:
     -  romainnorberg@gmail.com
   slack: romain-norberg:AAraEIeAoipJXwSUDsDL5YOd
-
-after_success:
-    - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash); fi;
