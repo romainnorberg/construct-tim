@@ -3,6 +3,10 @@ language: php
 services:
   - mysql
 
+env:
+  global:
+    - ENABLE_CODE_COVERAGE="true"
+
 php:
     - 7.0
 
@@ -10,7 +14,10 @@ before_script:
   - ./app/config/setup/setup.sh
 
 script:
-  - phpunit
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --whitelist --coverage-clover=coverage.xml; else phpunit; fi;
+
+after_script:
+  - travis_retry php vendor/bin/coveralls -v
 
 notifications:
   email:
@@ -18,4 +25,4 @@ notifications:
   slack: romain-norberg:AAraEIeAoipJXwSUDsDL5YOd
 
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+    - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash); fi;
