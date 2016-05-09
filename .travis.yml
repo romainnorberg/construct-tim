@@ -3,6 +3,10 @@ language: php
 services:
   - mysql
 
+env:
+  global:
+    - ENABLE_CODE_COVERAGE="true"
+
 php:
     - 7.0
 
@@ -19,11 +23,15 @@ before_script:
   - php app/console doctrine:database:create --env=test
   - php app/console doctrine:schema:create --env=test
   - php app/console doctrine:fixtures:load -n --env=test
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then composer require --dev satooshi/php-coveralls; fi
 
 script:
-  - phpunit
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --coverage-text --coverage-clover build/logs/clover.xml; else phpunit; fi;
 
 notifications:
   email:
     -  romainnorberg@gmail.com
   slack: romain-norberg:AAraEIeAoipJXwSUDsDL5YOd
+
+after_success:
+    - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then php vendor/bin/coveralls -v --config .coveralls.yml; fi;
