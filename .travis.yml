@@ -15,7 +15,7 @@ before_script:
   - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then pip install --user codecov; fi;
 
 script:
-  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --coverage-clover=clover.xml; else phpunit; fi;
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --whitelist --coverage-clover=clover.xml; else phpunit; fi;
 
 after_success:
     - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then codecov; fi;
