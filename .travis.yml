@@ -11,22 +11,11 @@ php:
     - 7.0
 
 before_script:
-  - gem install sass
-  - cp app/config/parameters.yml.dist app/config/parameters.yml
-  - composer install
-  - npm install -g bower
-  - bower install
-  - npm install -g grunt-cli
-  - npm install
-  - php app/console assets:install --symlink && grunt symlink
-  - grunt
-  - php app/console doctrine:database:create --env=test
-  - php app/console doctrine:schema:create --env=test
-  - php app/console doctrine:fixtures:load -n --env=test
+  - ./app/config/setup/setup.sh
   - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then composer require --dev satooshi/php-coveralls; fi
 
 script:
-  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --coverage-text --coverage-clover build/logs/clover.xml; else phpunit; fi;
+  - if [[ "$ENABLE_CODE_COVERAGE" == "true" ]]; then phpunit --whitelist --coverage-text --coverage-clover build/logs/clover.xml; else phpunit; fi;
 
 notifications:
   email:
