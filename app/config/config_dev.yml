@@ -37,3 +37,7 @@ monolog:
 
 swiftmailer:
     delivery_address: romainnorberg@gmail.com
+
+ewz_recaptcha:
+    public_key:  6Ld0jR8TAAAAAEkLyOuuxafZpi6EjxcU4prvr1MR #test key
+    private_key: 6Ld0jR8TAAAAAB34Xg_mo6Bntv1L-qg69HxXnOoa

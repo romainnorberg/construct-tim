@@ -25,3 +25,7 @@ $container->setParameter('locale', 'fr');
 $container->setParameter('rollbar_server_access_token', $secrets['CUSTOM']['ROLLBAR_SERVER_ACCESS_TOKEN']);
 $container->setParameter('rollbar_client_access_token', $secrets['CUSTOM']['ROLLBAR_CLIENT_ACCESS_TOKEN']);
 $container->setParameter('rollbar_environment', $secrets['CUSTOM']['ROLLBAR_ENVIRONMENT']);
+
+# ewz_recaptcha
+$container->setParameter('ewz_recaptcha_public_key', $secrets['CUSTOM']['EWZ_RECAPTCHA_PUBLIC_KEY']);
+$container->setParameter('ewz_recaptcha_private_key', $secrets['CUSTOM']['EWZ_RECAPTCHA_PRIVATE_KEY']);

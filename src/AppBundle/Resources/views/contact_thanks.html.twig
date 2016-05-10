@@ -1,0 +1,35 @@
+{% extends 'AppBundle::base_pages.html.twig' %}
+
+
+{% block content %}
+  <section class="contact">
+    <div class="container">
+      <!--Title-->
+      <div class="main-title">
+        <h1><span>Formulaire de contact</span></h1>
+      </div>
+      <div class="row">
+
+        {{ include('AppBundle::partials/contact/_address.html.twig') }}
+
+        <div class="col-12 col-lg-8">
+          <div class="panel">
+            <div class="panel-heading">
+              <div class="row"></div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <!--Heading-->
+            <div class="heading">
+              <h2>Besoin de conseils ou d'un devis personnalisé ?</h2>
+            </div>
+            <div class="alert alert-success">
+              Merci pour votre demande, nous vous recontacterons dans les plus brefs délais
+            </div>
+          <!--/Contact form-->
+        </div>
+      </div>
+      <hr />
+    </div>
+  </section>
+{% endblock %}

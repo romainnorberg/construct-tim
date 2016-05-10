@@ -25,27 +25,6 @@ section.contact
       -moz-transition: all 300ms linear
       -webkit-transition: all 300ms linear
 
-  #comment-form
-    input, textarea
-      border: 1px solid #eeeeee
-      -webkit-border-radius: 5px
-      -moz-border-radius: 5px
-      border-radius: 5px
-      color: #222222
-      font-size: 18px
-      font-weight: 300
-      height: auto
-      width: 100%
-      letter-spacing: 0.5px
-      margin-bottom: 18px
-      outline: none
-      padding: 10px 15px 10px
-      transition: all 300ms linear
-      -o-transition: all 300ms linear
-      -ms-transition: all 300ms linear
-      -moz-transition: all 300ms linear
-      -webkit-transition: all 300ms linear
-
   #forms
     select
       border: 1px solid #eeeeee
@@ -89,27 +68,19 @@ section.contact
     input:hover, textarea:hover, input:focus, textarea:focus
       border-color: #404040
 
-  #comment-form
-    input:hover, textarea:hover, input:focus, textarea:focus
-      border-color: #404040
+  #forms
+    ul.error-field
+      color: #a94442
+      background-color: #f2dede
+      margin: 0 30px
+      padding: 5px 10px
+      li
+        list-style: none
 
-  #forms .required:after, #comment-form .required:after
-    content: "Required field"
-    font-size: 14px
-    opacity: 0
-    pointer-events: none
-    position: absolute
-    right: 25px
-    top: 10px
-    transition: all 0.2s ease 0s
-    z-index: 15
-
-  #forms .required.error:after, #comment-form .required.error:after
-    opacity: 1
-
-  .notification
-    display: none
-    cursor: pointer
+    div.input-error
+      input
+        border-color: red
+        margin-bottom: 0
 
 
 section.map
