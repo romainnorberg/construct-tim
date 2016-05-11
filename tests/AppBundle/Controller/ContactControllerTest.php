@@ -28,9 +28,5 @@ class ContactControllerTest extends WebTestCase
       $crawler = $client->request('GET', $this->uri);
 
       $this->assertEquals(200, $client->getResponse()->getStatusCode());
-
-      $form = $crawler->selectButton('form_submit')->form();
-      $crawler = $client->submit($form, array('form[name]' => 'Fabien'));
-
   }
 }
