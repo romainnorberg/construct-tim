@@ -74,7 +74,7 @@ class ContactController extends AppBundleBaseController
         $attachement_dir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/contact';
         $attachement->move($attachement_dir, $fileName);
 
-        $mail->attach(\Swift_Attachment::fromPath($attachement_dir.$attachement->getClientOriginalName()));
+        $mail->attach(\Swift_Attachment::fromPath($attachement_dir.'/'.$fileName));
     }
 
 
