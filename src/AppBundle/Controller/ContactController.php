@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route,
     Sensio\Bundle\FrameworkExtraBundle\Configuration\Method,
     Symfony\Component\HttpFoundation\Request,
-    AppBundle\Form\ContactType;
+    AppBundle\Form\ContactForm;
 
 class ContactController extends AppBundleBaseController
 {
@@ -17,7 +17,7 @@ class ContactController extends AppBundleBaseController
    */
   public function contactAction(Request $request){
 
-    $this->contact_form = $this->createForm(ContactType::class);
+    $this->contact_form = $this->createForm(ContactForm::class);
 
     $this->contact_form->handleRequest($request);
 

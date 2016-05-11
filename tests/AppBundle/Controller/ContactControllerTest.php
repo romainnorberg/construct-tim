@@ -22,11 +22,7 @@ class ContactControllerTest extends WebTestCase
   }
 
   public function testContactSubmit()
-  {
-      $client = static::createClient();
-
-      $crawler = $client->request('GET', $this->uri);
-
-      $this->assertEquals(200, $client->getResponse()->getStatusCode());
-  }
+    {
+        
+    }
 }

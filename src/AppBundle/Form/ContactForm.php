@@ -16,16 +16,16 @@ use Symfony\Component\Form\AbstractType,
     EWZ\Bundle\RecaptchaBundle\Form\Type\RecaptchaType,
     EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 
-class ContactType extends AbstractType
+class ContactForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name', TextType::class, [
               'attr'  => [
-                'placeholder' => 'Nom et prénom',
-                'required' => true
+                'placeholder' => 'Nom et prénom'
               ],
+              'required' => true,
               'constraints' => [
                  new NotBlank(),
                  new Length(array('min' => 3)),
@@ -33,9 +33,9 @@ class ContactType extends AbstractType
             ])
             ->add('email', TextType::class, [
               'attr'  => [
-                'placeholder' => 'Adresse e-mail',
-                'required' => true
+                'placeholder' => 'Adresse e-mail'
               ],
+              'required' => true,
               'constraints' => [
                  new NotBlank(),
                  new Email(),
@@ -44,12 +44,14 @@ class ContactType extends AbstractType
             ->add('phone', TextType::class, [
               'attr'  => [
                 'placeholder' => 'Téléphone'
-              ]
+              ],
+              'required' => false
             ])
             ->add('city', TextType::class, [
               'attr'  => [
                 'placeholder' => 'Ville'
-              ]
+              ],
+              'required' => false
             ])
             ->add('type', ChoiceType::class, [
               'choices'  => [
@@ -70,9 +72,13 @@ class ContactType extends AbstractType
             ->add('budget', TextType::class, [
               'attr'  => [
                 'placeholder' => 'Budget'
-              ]
+              ],
+              'required' => false
             ])
-            ->add('attachement', FileType::class, array('label' => 'Joindre un fichier'))
+            ->add('attachement', FileType::class, [
+              'label' => 'Joindre un fichier',
+              'required' => false
+            ])
             ->add('recaptcha', RecaptchaType::class, [
               'attr' => [
                   'options' => [
@@ -86,7 +92,8 @@ class ContactType extends AbstractType
               'mapped'      => false,
               'constraints' => [
                   new RecaptchaTrue()
-              ]
+              ],
+              'required' => true
             ])
             ->add('message', TextareaType::class, [
               'attr'  => [

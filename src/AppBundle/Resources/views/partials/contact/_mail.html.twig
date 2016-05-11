@@ -27,10 +27,6 @@
   <br><h4 style="text-decoration:underline">Request information</h4>
 
 
-  <p><b>Remote ip:</b>
-  212.83.179.115</p>
+  <p><b>Remote ip:</b> {{ app.request.server.get("REMOTE_ADDR") }}</p>
 
-  <p><b>User agent:</b>
-  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36</p><div class="yj6qo"></div><div class="adL">
-  <br>
-</div>
+  <p><b>User agent:</b>{{ app.request.server.get('HTTP_USER_AGENT') }}</p>
