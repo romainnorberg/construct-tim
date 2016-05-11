@@ -11,7 +11,9 @@ class ContactControllerTest extends WebTestCase
   {
     $this->uri = 'contact';
   }
-
+  /**
+   * @group legacy
+   */
   public function testContact()
   {
       $client = static::createClient();
@@ -20,9 +22,4 @@ class ContactControllerTest extends WebTestCase
 
       $this->assertEquals(200, $client->getResponse()->getStatusCode());
   }
-
-  public function testContactSubmit()
-    {
-        
-    }
 }

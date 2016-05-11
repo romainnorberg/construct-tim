@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - ENABLE_CODE_COVERAGE="true"
+    - ENABLE_CODE_COVERAGE="false"
 
 php:
     - 7.0
