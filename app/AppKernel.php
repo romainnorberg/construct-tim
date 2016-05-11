@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOSUserExtendBundle\FOSUserExtendBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new AppBundle\AppBundle(),
         );
 

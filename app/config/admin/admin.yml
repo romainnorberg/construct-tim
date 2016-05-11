@@ -51,6 +51,6 @@ easy_admin:
           - title
           - page_title
           - slug
-          - content
+          - { property: 'content', type: 'ckeditor' }
           - description
           - keywords
