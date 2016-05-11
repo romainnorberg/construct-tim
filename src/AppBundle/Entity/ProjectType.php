@@ -38,7 +38,8 @@ class ProjectType
     private $page_title;
 
     /**
-     * @Gedmo\Slug(fields={"title"})
+     * @var string
+     *
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;

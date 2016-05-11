@@ -46,3 +46,11 @@ easy_admin:
       label: 'Types de projet'
       list:
         title: %%entity_label%%
+      edit:
+        fields:
+          - title
+          - page_title
+          - slug
+          - content
+          - description
+          - keywords
