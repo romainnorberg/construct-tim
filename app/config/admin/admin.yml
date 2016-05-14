@@ -54,3 +54,4 @@ easy_admin:
           - { property: 'content', type: 'ckeditor' }
           - description
           - keywords
+          - { property: 'imageFile', type: 'file' }

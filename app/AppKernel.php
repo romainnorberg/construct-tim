@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
             new AppBundle\AppBundle(),
         );
 
