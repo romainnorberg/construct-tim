@@ -65,9 +65,22 @@ stof_doctrine_extensions:
             timestampable: true
             sluggable: true
 
+oneup_flysystem:
+    adapters:
+        ct_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/uploads/medias
+
+    filesystems:
+        ct_image_fs:
+            adapter:    ct_adapter
+            mount:      ct_image_fs
+
 vich_uploader:
     db_driver: orm
+    storage:   flysystem
     mappings:
-        project_type_image:
+        ct_image:
             uri_prefix:         /uploads/medias
-            upload_destination: %kernel.root_dir%/../web/uploads/medias
+            upload_destination: ct_image_fs
+            namer:              vich_uploader.namer_uniqid

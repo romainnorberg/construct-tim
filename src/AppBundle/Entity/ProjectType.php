@@ -71,7 +71,7 @@ class ProjectType
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="project_type_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="ct_image", fileNameProperty="imageName")
      *
      * @var File
      */
