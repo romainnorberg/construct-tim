@@ -11,8 +11,9 @@ class ContactControllerTest extends WebTestCase
   {
     $this->uri = 'contact';
   }
+  
   /**
-   * @group contact
+   * @group form
    */
   public function testContact()
   {

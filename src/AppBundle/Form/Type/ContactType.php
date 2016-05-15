@@ -13,7 +13,7 @@ use Symfony\Component\Form\AbstractType,
     Symfony\Component\Validator\Constraints\Length,
     Symfony\Component\Validator\Constraints\NotBlank,
     Symfony\Component\Validator\Constraints\Email,
-    EWZ\Bundle\RecaptchaBundle\Form\Type\RecaptchaType,
+    EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType,
     EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 
 class ContactType extends AbstractType
@@ -79,7 +79,7 @@ class ContactType extends AbstractType
               'label' => 'Joindre un fichier',
               'required' => false
             ])
-            ->add('recaptcha', RecaptchaType::class, [
+            ->add('recaptcha', EWZRecaptchaType::class, [
               'attr' => [
                   'options' => [
                       'theme' => 'light',

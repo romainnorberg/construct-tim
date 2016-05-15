@@ -16,15 +16,15 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new FOSUserExtendBundle\FOSUserExtendBundle(),
+            #new FOSUserExtendBundle\FOSUserExtendBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new AppBundle\AppBundle(),
         );
-
+        /*
         if ($this->getEnvironment() == 'prod') {
             $bundles[] = new \Ftrrtf\RollbarBundle\FtrrtfRollbarBundle();
         }
+        */
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
