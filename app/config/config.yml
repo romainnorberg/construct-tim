@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    #- { resource: admin/ }
 
 framework:
     #esi:             ~
@@ -62,3 +61,11 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        # ...
