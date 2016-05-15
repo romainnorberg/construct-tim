@@ -11,7 +11,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {
+        "psr-0": {
             "": "src/"
         },
         "classmap": [
@@ -40,7 +40,8 @@
         "stof/doctrine-extensions-bundle": "^1.2",
         "sonata-project/admin-bundle": "^3.0",
         "sonata-project/core-bundle": "^3.0",
-        "sonata-project/doctrine-orm-admin-bundle": "^3.0"
+        "sonata-project/doctrine-orm-admin-bundle": "^3.0",
+        "vich/uploader-bundle": "1.0.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

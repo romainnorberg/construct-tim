@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: admin/ }
 
 framework:
     #esi:             ~
@@ -30,6 +31,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -62,10 +65,9 @@ stof_doctrine_extensions:
             timestampable: true
             sluggable: true
 
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        # enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts: [admin]
-        # ...
+vich_uploader:
+    db_driver: orm
+    mappings:
+        project_type_image:
+            uri_prefix:         /uploads/medias
+            upload_destination: %kernel.root_dir%/../web/uploads/medias

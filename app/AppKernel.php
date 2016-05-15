@@ -16,7 +16,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            #new FOSUserExtendBundle\FOSUserExtendBundle(),
 
             // SonataAdminBundle requirements
             new Sonata\CoreBundle\SonataCoreBundle(),
@@ -26,6 +25,11 @@ class AppKernel extends Kernel
             // storage and SonataAdminBundle
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+
+            // medias
+            new Vich\UploaderBundle\VichUploaderBundle(),
+
+            // app
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new AppBundle\AppBundle(),
         );

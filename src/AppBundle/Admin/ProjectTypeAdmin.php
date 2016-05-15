@@ -2,10 +2,11 @@
 
 namespace AppBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Admin\Admin,
+    Sonata\AdminBundle\Datagrid\ListMapper,
+    Sonata\AdminBundle\Datagrid\DatagridMapper,
+    Sonata\AdminBundle\Form\FormMapper,
+    Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProjectTypeAdmin extends Admin
 {
@@ -16,6 +17,11 @@ class ProjectTypeAdmin extends Admin
         $formMapper->add('slug', 'text');
         $formMapper->add('description', 'text');
         $formMapper->add('content', 'textarea');
+        $formMapper->add('imageFile', VichImageType::class, array(
+          'required'      => false,
+          'allow_delete'  => true,
+          'download_link' => true,
+        ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
