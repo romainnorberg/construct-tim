@@ -29,3 +29,7 @@ $container->setParameter('rollbar_environment', $secrets['CUSTOM']['ROLLBAR_ENVI
 # ewz_recaptcha
 $container->setParameter('ewz_recaptcha_public_key', $secrets['CUSTOM']['EWZ_RECAPTCHA_PUBLIC_KEY']);
 $container->setParameter('ewz_recaptcha_private_key', $secrets['CUSTOM']['EWZ_RECAPTCHA_PRIVATE_KEY']);
+
+# s3 permissions
+$container->setParameter('s3_credentials_key', $secrets['CUSTOM']['S3_CREDENTIALS_KEY']);
+$container->setParameter('s3_credentials_secret', $secrets['CUSTOM']['S3_CREDENTIALS_SECRET']);

@@ -11,3 +11,6 @@ $container->setParameter('mailer_host', getenv('MAILER_HOST'));
 $container->setParameter('mailer_user', getenv('MAILER_USER'));
 $container->setParameter('mailer_password', getenv('MAILER_PASSWORD'));
 $container->setParameter('mailer_sender', getenv('MAILER_SENDER'));
+
+$container->setParameter('s3_credentials_key', getenv('S3_CREDENTIALS_KEY'));
+$container->setParameter('s3_credentials_secret', getenv('S3_CREDENTIALS_SECRET'));

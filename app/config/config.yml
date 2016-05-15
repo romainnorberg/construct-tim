@@ -68,19 +68,21 @@ stof_doctrine_extensions:
 oneup_flysystem:
     adapters:
         ct_adapter:
-            local:
-                directory: %kernel.root_dir%/../web/uploads/medias
+            awss3v3:
+                client: ct.s3_client
+                bucket: "construct-tim-2016"
+                prefix: ~
 
     filesystems:
-        ct_image_fs:
+        ct_image_fs_s3:
             adapter:    ct_adapter
-            mount:      ct_image_fs
+            mount:      ct_image_fs_s3
 
 vich_uploader:
     db_driver: orm
     storage:   flysystem
     mappings:
         ct_image:
-            uri_prefix:         /uploads/medias
-            upload_destination: ct_image_fs
+            uri_prefix:         "http://construct-tim-2016.s3-website.eu-central-1.amazonaws.com"
+            upload_destination: ct_image_fs_s3
             namer:              vich_uploader.namer_uniqid
