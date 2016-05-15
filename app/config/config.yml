@@ -2,10 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: admin/ }
-
-parameters:
-    app.path.product_images: /uploads/images
+    #- { resource: admin/ }
 
 framework:
     #esi:             ~
@@ -70,10 +67,3 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
-
-vich_uploader:
-    db_driver: orm
-    mappings:
-        product_images:
-            uri_prefix: %app.path.product_images%
-            upload_destination: %kernel.root_dir%/../web/uploads/images

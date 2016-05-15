@@ -3,9 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM,
-    Gedmo\Mapping\Annotation as Gedmo,
-    Symfony\Component\HttpFoundation\File\File,
-    Vich\UploaderBundle\Mapping\Annotation as Vich;
+    Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * ProjectType
@@ -13,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM,
  * @ORM\Table(name="project_type")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectTypeRepository")
  * @ORM\HasLifecycleCallbacks()
- * @Vich\Uploadable
  */
 class ProjectType
 {
@@ -67,18 +64,6 @@ class ProjectType
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
-     */
-    private $image;
-
-    /**
-     * @Vich\UploadableField(mapping="project_type_images", fileNameProperty="image")
-     * @var File
-     */
-    private $imageFile;
 
     /**
      * @var \DateTime $created
@@ -248,30 +233,6 @@ class ProjectType
     public function getContent()
     {
         return $this->content;
-    }
-
-    public function setImageFile(File $image = null)
-    {
-        $this->imageFile = $image;
-
-        if ($image) {
-          $this->updated = new \DateTime('now');
-        }
-    }
-
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-
-    public function getImage()
-    {
-        return $this->image;
     }
 
     /**

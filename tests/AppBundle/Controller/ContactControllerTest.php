@@ -12,7 +12,7 @@ class ContactControllerTest extends WebTestCase
     $this->uri = 'contact';
   }
   /**
-   * @group legacy
+   * @group contact
    */
   public function testContact()
   {
