@@ -41,7 +41,7 @@ class TestController extends Controller
     //$imagepath = $helper->asset($projectType, 'imageFile');
     //
 
-    $image = '57395beb694ba.jpg';
+    $image = $projectType->getImageName();
 
     return $this->render(
       'AppBundle::test.html.twig',
