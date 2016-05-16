@@ -110,7 +110,7 @@ liip_imagine:
         loader_aws_s3_images:
             stream:
                 # This refers to knp_gaufrette filesystems configuration
-                wrapper: gaufrette://filesystem_aws_s3_images
+                wrapper: gaufrette://filesystem_aws_s3_images/
 
     filter_sets:
         test_medium_thumb:
