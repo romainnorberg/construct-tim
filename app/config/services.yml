@@ -17,7 +17,7 @@ services:
       class: Aws\Credentials\Credentials
       arguments: ["%s3_credentials_key%", "%s3_credentials_secret%"]
 
-    ct.s3_client:
+    shq.amazon.s3:
       class: Aws\S3\S3Client
       arguments:
           -

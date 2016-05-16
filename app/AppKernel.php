@@ -28,7 +28,7 @@ class AppKernel extends Kernel
 
             // medias
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
 
             // app

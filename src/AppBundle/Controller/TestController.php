@@ -27,24 +27,26 @@ class TestController extends Controller
         );
     }
 
-    $filesystem = $this->get('oneup_flysystem.mount_manager')->getFilesystem('ct_image_fs_s3');
-      //$file = $filesystem->get('57395313eae1f.jpg');
-      $file = $filesystem->read($projectType->getImageName());
+    $filesystem = $this->get('knp_gaufrette.filesystem_map')->get('filesystem_aws_s3_images');
+        $file = $filesystem->get($projectType->getImageName());
 
-      /*
-       * Note the use of the dump() function.
-       * If you don't have the VarDumperComponent installed, use var_dump().
-       * @see http://symfony.com/doc/current/components/var_dumper/introduction.html
-       */
-    //dump($file);die;
+        /*
+         * Note the use of the dump() function.
+         * If you don't have the VarDumperComponent installed, use var_dump().
+         * @see http://symfony.com/doc/current/components/var_dumper/introduction.html
+         */
+        //dump($file);die;
 
-    $helper = $this->container->get('vich_uploader.templating.helper.uploader_helper');
-    $imagepath = $helper->asset($projectType, 'imageFile');
+    //$helper = $this->container->get('vich_uploader.templating.helper.uploader_helper');
+    //$imagepath = $helper->asset($projectType, 'imageFile');
+    //
+
+    $image = '57395beb694ba.jpg';
 
     return $this->render(
       'AppBundle::test.html.twig',
       [
-        'image' => $imagepath
+        'image' => $image
       ]
     );
   }

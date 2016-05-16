@@ -26,19 +26,19 @@ monolog:
         console:
             type:  console
 
-ftrrtf_rollbar:
-    notifier:
-        server:
-            transport:
-                type: curl
-                access_token: %rollbar_server_access_token%
-            # or async
-            #    type: agent
-            #    agent_log_location: %kernel.logs_dir%/%kernel.environment%.rollbar
-        client:
-            access_token: %rollbar_client_access_token%
-    environment:
-        environment: "%rollbar_environment%"
+#ftrrtf_rollbar:
+#    notifier:
+#        server:
+#            transport:
+#                type: curl
+#                access_token: %rollbar_server_access_token%
+#            # or async
+#            #    type: agent
+#            #    agent_log_location:# %kernel.logs_dir%/%kernel.environment%.rollbar
+#        client:
+#            access_token: %rollbar_client_access_token%
+#    environment:
+#        environment: "%rollbar_environment%"
 
 ewz_recaptcha:
   public_key:  %ewz_recaptcha_public_key%
