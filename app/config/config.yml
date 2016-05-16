@@ -72,6 +72,8 @@ oneup_flysystem:
                 client: ct.s3_client
                 bucket: "construct-tim-2016"
                 prefix: ~
+                options:
+                  create: true
 
     filesystems:
         ct_image_fs_s3:
@@ -86,3 +88,42 @@ vich_uploader:
             uri_prefix:         "http://construct-tim-2016.s3-website.eu-central-1.amazonaws.com"
             upload_destination: ct_image_fs_s3
             namer:              vich_uploader.namer_uniqid
+
+liip_imagine:
+    driver:               imagick
+
+    resolvers:
+       cache_resolver_aws_s3:
+          aws_s3:
+              client_config:
+                  credentials:
+                      key: %s3_credentials_key%
+                      secret: %s3_credentials_secret%
+                  region: "eu-central-1"
+                  version: "latest"
+              bucket:     "construct-tim-2016"
+              get_options:
+                  Scheme: 'https'
+              put_options:
+                  CacheControl: 'max-age=86400'
+
+    loaders:
+        loader_aws_s3_images:
+            flysystem:
+                filesystem_service: oneup_flysystem.ct_image_fs_s3_filesystem
+
+    filter_sets:
+        test_medium_thumb:
+            data_loader: loader_aws_s3_images
+            # We don't yet have a cache resolver configured
+            cache: cache_resolver_aws_s3
+            quality: 75
+            filters:
+                thumbnail: { size: [400, 400], mode: outbound }
+        test_small_thumb:
+            data_loader: loader_aws_s3_images
+            # We don't yet have a cache resolver configured
+            cache: cache_resolver_aws_s3
+            quality: 75
+            filters:
+                thumbnail: { size: [100, 100], mode: outbound }
