@@ -84,7 +84,7 @@ vich_uploader:
     storage:   gaufrette
     mappings:
         ct_image:
-            uri_prefix:         "https://s3.eu-central-1.amazonaws.com/construct-tim-2016/images/"
+            uri_prefix:         "https://s3.eu-central-1.amazonaws.com/construct-tim-2016/images"
             upload_destination: filesystem_aws_s3_images
             namer:              vich_uploader.namer_uniqid
 
@@ -100,6 +100,8 @@ liip_imagine:
                       secret: %s3_credentials_secret%
                   region: "eu-central-1"
                   version: "latest"
+                  options:
+                      directory: 'cache'
               bucket:     "construct-tim-2016"
               get_options:
                   Scheme: 'https'
