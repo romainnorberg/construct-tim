@@ -26,19 +26,17 @@ monolog:
         console:
             type:  console
 
-#ftrrtf_rollbar:
-#    notifier:
-#        server:
-#            transport:
-#                type: curl
-#                access_token: %rollbar_server_access_token%
-#            # or async
-#            #    type: agent
-#            #    agent_log_location:# %kernel.logs_dir%/%kernel.environment%.rollbar
-#        client:
-#            access_token: %rollbar_client_access_token%
-#    environment:
-#        environment: "%rollbar_environment%"
+staffim_rollbar:
+    # Rollbar access token
+    access_token: %rollbar_server_access_token%
+    # PHP error level (see http://php.net/manual/en/function.error-reporting.php)
+    error_level: -1
+    # Values from scrub.parameters are replaced by the key for specified exceptions
+    scrub:
+        exceptions:
+            - PDOException
+        parameters:
+            key: %rollbar_client_access_token%
 
 ewz_recaptcha:
   public_key:  %ewz_recaptcha_public_key%

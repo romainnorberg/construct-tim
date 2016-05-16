@@ -35,11 +35,10 @@ class AppKernel extends Kernel
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new AppBundle\AppBundle(),
         );
-        /*
+
         if ($this->getEnvironment() == 'prod') {
-            $bundles[] = new \Ftrrtf\RollbarBundle\FtrrtfRollbarBundle();
+            $bundles[] = new Staffim\RollbarBundle\StaffimRollbarBundle();
         }
-        */
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();

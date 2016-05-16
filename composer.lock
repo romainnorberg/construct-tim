@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d2e501320918f3680e2d652a00b9105",
-    "content-hash": "8c73f6e42a5f56967d04ac2a7c01e6fd",
+    "hash": "ac05d582e1c5d38d7bc0f4ef6bf58b23",
+    "content-hash": "fd2e395cbc3c7ff2b605ecbb3b368675",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2089,6 +2089,56 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "rollbar/rollbar",
+            "version": "v0.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "0e2f52efac8a9bb576888a8f3e2d7ebae2b19416"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/0e2f52efac8a9bb576888a8f3e2d7ebae2b19416",
+                "reference": "0e2f52efac8a9bb576888a8f3e2d7ebae2b19416",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Level.php",
+                    "src/rollbar.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rollbar, Inc.",
+                    "email": "support@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "http://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2016-04-27 20:06:54"
+        },
+        {
             "name": "sensio/distribution-bundle",
             "version": "v5.0.6",
             "source": {
@@ -2675,6 +2725,55 @@
                 "xls"
             ],
             "time": "2015-11-25 09:33:45"
+        },
+        {
+            "name": "staffim/rollbar-bundle",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staffim/StaffimRollbarBundle.git",
+                "reference": "499933c81509d71ab866a1b8a2e9ad5cbc0c72eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staffim/StaffimRollbarBundle/zipball/499933c81509d71ab866a1b8a2e9ad5cbc0c72eb",
+                "reference": "499933c81509d71ab866a1b8a2e9ad5cbc0c72eb",
+                "shasum": ""
+            },
+            "require": {
+                "rollbar/rollbar": "~0.15",
+                "symfony/debug": "~2.6|~3.0",
+                "symfony/event-dispatcher": "~2.6|~3.0",
+                "symfony/http-kernel": "~2.6|~3.0",
+                "symfony/security-core": "~2.6|~3.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.3",
+                "phpunit/phpunit": "~4.8",
+                "symfony/framework-bundle": "~2.6|~3.0",
+                "symfony/security-bundle": "~2.6|~3.0"
+            },
+            "type": "bundle",
+            "autoload": {
+                "psr-4": {
+                    "Staffim\\RollbarBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vyacheslav Salakhutdinov",
+                    "email": "megazoll@gmail.com"
+                }
+            ],
+            "description": "Bundle for Symfony2 that reports errors to Rollbar",
+            "keywords": [
+                "rollbar"
+            ],
+            "time": "2016-04-12 10:12:15"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
