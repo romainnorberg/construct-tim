@@ -1,8 +1,9 @@
-<h1>Test resized with <code>test_small_thumb</code></h1>
-<img src="{{ image | imagine_filter('test_small_thumb') }}" alt="" />
+{% extends 'base.html.twig' %}
 
-<h1>Test resized with <code>test_medium_thumb</code></h1>
-<img src="{{ image | imagine_filter('test_medium_thumb') }}" alt="" />
+{% block body %}
+  <h1>Test resized with <code>images_small_thumb</code></h1>
+  <img src="{{ image | imagine_filter('images_small_thumb') }}" alt="" />
 
-<h1>Original Image</h1>
-<img src="{{ image }}" alt="" />
+  <h1>Test resized with <code>images_medium_thumb</code></h1>
+  <img src="{{ image | imagine_filter('images_medium_thumb') }}" alt="" />
+{% endblock %}

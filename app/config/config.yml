@@ -100,8 +100,6 @@ liip_imagine:
                       secret: %s3_credentials_secret%
                   region: "eu-central-1"
                   version: "latest"
-                  options:
-                      directory: 'cache'
               bucket:     "construct-tim-2016"
               get_options:
                   Scheme: 'https'
@@ -115,17 +113,17 @@ liip_imagine:
                 wrapper: gaufrette://filesystem_aws_s3_images/
 
     filter_sets:
-        test_medium_thumb:
+        images_medium_thumb:
             data_loader: loader_aws_s3_images
             # We don't yet have a cache resolver configured
             cache: cache_resolver_aws_s3
-            quality: 75
+            quality: 65
             filters:
                 thumbnail: { size: [400, 400], mode: outbound }
-        test_small_thumb:
+        images_small_thumb:
             data_loader: loader_aws_s3_images
             # We don't yet have a cache resolver configured
             cache: cache_resolver_aws_s3
-            quality: 75
+            quality: 65
             filters:
                 thumbnail: { size: [100, 100], mode: outbound }
