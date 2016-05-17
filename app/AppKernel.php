@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
 
             // app
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),

@@ -1,26 +1,7 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
+imports:
+    - { resource: services/ }
+
 parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-    admin.project_type:
-        class: AppBundle\Admin\ProjectTypeAdmin
-        arguments: [~, AppBundle\Entity\ProjectType, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Type de projet }
-
-    shq.amazon.s3Credentials:
-      class: Aws\Credentials\Credentials
-      arguments: ["%s3_credentials_key%", "%s3_credentials_secret%"]
-
-    shq.amazon.s3:
-      class: Aws\S3\S3Client
-      arguments:
-          -
-              version: 'latest' # or 'latest'
-              region: "eu-central-1" # 'eu-central-1' for example
-              credentials: "@shq.amazon.s3Credentials"

@@ -1,0 +1,8 @@
+services:
+    admin.project_type:
+        class: AppBundle\Admin\ProjectTypeAdmin
+        arguments: [~, AppBundle\Entity\ProjectType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Type de projet }
+        calls:
+            - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
