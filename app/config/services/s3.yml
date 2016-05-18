@@ -1,3 +1,8 @@
+imports:
+    - { resource: s3.php }
+
+parameters:
+
 services:
     shq.amazon.s3Credentials:
       class: Aws\Credentials\Credentials
@@ -7,6 +12,6 @@ services:
       class: Aws\S3\S3Client
       arguments:
           -
-              version: 'latest' # or 'latest'
-              region: "eu-central-1" # 'eu-central-1' for example
+              version: %s3_version%
+              region: %s3_region%
               credentials: "@shq.amazon.s3Credentials"

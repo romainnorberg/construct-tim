@@ -3,7 +3,7 @@ knp_gaufrette:
         adapter_aws_s3_images:
             aws_s3:
                 service_id: "shq.amazon.s3"
-                bucket_name: "construct-tim-2016"
+                bucket_name: %s3_bucket%
                 options:
                     directory: 'images'
                     create: true
@@ -17,7 +17,7 @@ vich_uploader:
     storage:   gaufrette
     mappings:
         ct_image:
-            uri_prefix:         "https://s3.eu-central-1.amazonaws.com/construct-tim-2016/images"
+            uri_prefix:         "https://s3.%s3_region%.amazonaws.com/%s3_bucket%/images"
             upload_destination: filesystem_aws_s3_images
             namer:              vich_uploader.namer_uniqid
 
@@ -31,9 +31,9 @@ liip_imagine:
                   credentials:
                       key: %s3_credentials_key%
                       secret: %s3_credentials_secret%
-                  region: "eu-central-1"
-                  version: "latest"
-              bucket:     "construct-tim-2016"
+                  region: %s3_region%
+                  version: %s3_version%
+              bucket:     %s3_bucket%
               get_options:
                   Scheme: 'https'
               put_options:

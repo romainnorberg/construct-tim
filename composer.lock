@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "430852a69e6bcb8d7a0ecbab4bbda9ef",
-    "content-hash": "f36b143e6c88a64418611bb129341ee6",
+    "hash": "c39f9082b2fe2d585e6989bf626b10de",
+    "content-hash": "2b9ab914748a4cea3d4b678997df48c6",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1656,6 +1656,42 @@
                 "psr-3"
             ],
             "time": "2016-04-12 18:29:35"
+        },
+        {
+            "name": "moxiecode/plupload",
+            "version": "3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moxiecode/plupload.git",
+                "reference": "9bf9945c882a115a56a9b80ffac3837c98868238"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moxiecode/plupload/zipball/9bf9945c882a115a56a9b80ffac3837c98868238",
+                "reference": "9bf9945c882a115a56a9b80ffac3837c98868238",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(GPL-2.0 or OEM)"
+            ],
+            "authors": [
+                {
+                    "name": "Davit Barbakadze",
+                    "email": "david@moxiecode.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Plupload is a JavaScript API for dealing with file uploads it supports features like multiple file selection, file type filtering, request chunking, client side image scaling and it uses different runtimes to achieve this such as HTML 5, Silverlight and Flash.",
+            "homepage": "http://plupload.com",
+            "keywords": [
+                "file upload",
+                "legacy browser support",
+                "multi-runtime",
+                "plupload"
+            ],
+            "time": "2016-04-29 12:44:09"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -4200,7 +4236,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "excelwebzone/recaptcha-bundle": 20
+        "excelwebzone/recaptcha-bundle": 20,
+        "moxiecode/plupload": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

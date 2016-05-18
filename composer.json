@@ -46,7 +46,8 @@
         "vich/uploader-bundle": "1.0.1",
         "knplabs/knp-gaufrette-bundle": "^0.3.0",
         "liip/imagine-bundle": "1.5.3",
-        "stfalcon/tinymce-bundle": "2.0"
+        "stfalcon/tinymce-bundle": "2.0",
+        "moxiecode/plupload": "3.x-dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

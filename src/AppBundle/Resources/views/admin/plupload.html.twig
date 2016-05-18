@@ -1,0 +1,62 @@
+<script src="/bundles/app/js/plupload.full.min.js"></script>
+<script>
+
+  var PluploadHandler = function( $, plupload ) {
+    var self = this;
+    this.plupload = plupload;
+    // Custom example logic
+    this.uploader = new plupload.Uploader({
+      runtimes : 'html5',
+      browse_button : document.getElementById('imageupload'),
+      url : 'http://{{ s3_bucket }}.s3.{{ s3_region }}.amazonaws.com/',
+      flash_swf_url : 'bundles/app/js/Moxie.swf',
+      silverlight_xap_url : 'bundles/app/js/Moxie.xap',
+      drop_element : "dropFilesHere",
+      multipart: true,
+      multipart_params: {
+        'key': '${filename}', // use filename as a key
+        'Filename': '${filename}', // adding this to keep consistency across the runtimes
+        'acl': 'public-read',
+        'Content-Type': 'image/jpeg',
+        'AWSAccessKeyId' : '{{ s3_key }}',
+        'policy': '{{ s3_policy }}',
+        'signature': '{{ s3_signature }}'
+      },
+      file_data_name: 'file',
+      filters : {
+        max_file_size : '10mb',
+        mime_types: [
+          {title : "Image files", extensions : "jpg,jpeg,gif,png"}
+        ]
+      },
+      init: {
+        PostInit: function() {
+          $('.filelist').html('');
+        },
+        Error: function(up, err) {
+          console.log("\nError #" + err.code + ": " + err.message);
+        }
+      }
+    });
+    this.uploader.init();
+    this.uploader.bind("FilesAdded", handlePluploadFilesAdded);
+    this.uploader.bind("FileUploaded", handlePluploadFileUploaded);
+    function handlePluploadFilesAdded(up, files) {
+      console.log("+ handlePluploadFilesAdded");
+      up.start();
+    }
+    function handlePluploadFileUploaded(up, file, res) {
+      console.log("++ res.response: " + JSON.stringify(res.response));
+      var img = "<img src='" + res.response + "?" + Date.now() + "'>";
+      tinymce.activeEditor.execCommand('mceInsertContent', false, img);
+    }
+  }
+
+  function callback_tinymce_init(editor) {
+    pluploadHandler = new PluploadHandler(jQuery, plupload, 'html', 800 );
+  }
+
+  function tinymce_button_imageupload(){
+    console.log(pluploadHandler);
+  }
+</script>
