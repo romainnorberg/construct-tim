@@ -6,3 +6,7 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Type de projet }
         calls:
             - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
+
+    admin.tinymce:
+        class: AppBundle\Admin\TinymceAdmin
+        arguments: [~, ~, ~]

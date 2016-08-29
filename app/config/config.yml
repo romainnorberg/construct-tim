@@ -38,11 +38,6 @@ twig:
         s3_region: '%s3_region%'
         s3_version: '%s3_version%'
         s3_bucket: '%s3_bucket%'
-        s3_policy: '%s3_policy%'
-        s3_signature: '%s3_signature%'
-        s3_signature: '%s3_signature%'
-        s3_key: '%s3_credentials_key%'
-        s3_secret: '%s3_credentials_secret%'
 
 # Doctrine Configuration
 doctrine:

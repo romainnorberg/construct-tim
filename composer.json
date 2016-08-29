@@ -47,7 +47,7 @@
         "knplabs/knp-gaufrette-bundle": "^0.3.0",
         "liip/imagine-bundle": "1.5.3",
         "stfalcon/tinymce-bundle": "2.0",
-        "moxiecode/plupload": "3.x-dev"
+        "cocur/slugify": "^2.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

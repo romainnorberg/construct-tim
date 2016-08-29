@@ -3,13 +3,14 @@
 {% block javascripts %}
   {{ parent() }}
 
-  {{ tinymce_init() }}
-
-  {% include 'AppBundle:admin:plupload.html.twig' %}
+  {% include 'AppBundle::admin/tinymce/tinymce.html.twig' %}
 
 {% endblock %}
 
 {% block form %}
   {{ parent() }}
-  <button id="imageupload" value="upload">test</button>
+
+  {{ render(controller(
+      'AppBundle:Admin:upload'
+  )) }}
 {% endblock %}
