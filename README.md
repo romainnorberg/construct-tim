@@ -20,11 +20,11 @@ Run:
   - bower install
   - npm install -g grunt-cli
   - npm install
-  - php app/console assets:install --symlink && grunt symlink
+  - php bin/console assets:install --symlink && grunt symlink
   - grunt && grunt watch
-  - php app/console doctrine:database:create --env=test
-  - php app/console doctrine:schema:create --env=test
-  - php app/console doctrine:fixtures:load -n --env=test
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+  - php bin/console doctrine:fixtures:load -n --env=test
 
 Optional:
   - cp tests/pre-commit-dist .git/hooks/pre-commit
