@@ -14,7 +14,7 @@ class TestController extends Controller
    * @Route("/test", name="test")
    * @Method({"GET"})
    */
-  public function TestAction(Request $request)
+  public function testAction(Request $request)
   {
 
     $projectType = $this->getDoctrine()

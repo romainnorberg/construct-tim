@@ -1,15 +1,6 @@
 knp_gaufrette:
-    adapters:
-        adapter_aws_s3_images:
-            aws_s3:
-                service_id: "shq.amazon.s3"
-                bucket_name: %s3_bucket%
-                options:
-                    directory: 'images'
-                    create: true
-    filesystems:
-        filesystem_aws_s3_images:
-            adapter: adapter_aws_s3_images
+    adapters: ~
+    filesystems: ~
     stream_wrapper: ~
 
 vich_uploader:
@@ -17,46 +8,14 @@ vich_uploader:
     storage:   gaufrette
     mappings:
         ct_image:
-            uri_prefix:         "https://s3.%s3_region%.amazonaws.com/%s3_bucket%/images"
-            upload_destination: filesystem_aws_s3_images
+            upload_destination: "."
             namer:              vich_uploader.namer_uniqid
 
 liip_imagine:
     driver:               imagick
 
     resolvers:
-       cache_resolver_aws_s3:
-          aws_s3:
-              client_config:
-                  credentials:
-                      key: %s3_credentials_key%
-                      secret: %s3_credentials_secret%
-                  region: %s3_region%
-                  version: %s3_version%
-              bucket:     %s3_bucket%
-              get_options:
-                  Scheme: 'https'
-              put_options:
-                  CacheControl: 'max-age=86400'
 
     loaders:
-        loader_aws_s3_images:
-            stream:
-                # This refers to knp_gaufrette filesystems configuration
-                wrapper: gaufrette://filesystem_aws_s3_images/
 
     filter_sets:
-        images_medium_thumb:
-            data_loader: loader_aws_s3_images
-            # We don't yet have a cache resolver configured
-            cache: cache_resolver_aws_s3
-            quality: 65
-            filters:
-                thumbnail: { size: [400, 400], mode: outbound }
-        images_small_thumb:
-            data_loader: loader_aws_s3_images
-            # We don't yet have a cache resolver configured
-            cache: cache_resolver_aws_s3
-            quality: 65
-            filters:
-                thumbnail: { size: [100, 100], mode: outbound }

@@ -34,10 +34,6 @@ twig:
     strict_variables: "%kernel.debug%"
     form_themes:
         - 'VichUploaderBundle:Form:fields.html.twig'
-    globals:
-        s3_region: '%s3_region%'
-        s3_version: '%s3_version%'
-        s3_bucket: '%s3_bucket%'
 
 # Doctrine Configuration
 doctrine:
@@ -74,3 +70,6 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"

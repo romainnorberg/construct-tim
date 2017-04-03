@@ -58,7 +58,6 @@ class ContactType extends AbstractType
                   'Demande de prix' => 'Demande de prix',
                   'Autre' => 'Autre'
               ],
-              'choices_as_values' => true,
             ])
             ->add('subject', ChoiceType::class, [
               'choices'  => [
@@ -67,7 +66,6 @@ class ContactType extends AbstractType
                   'Rénovation' => 'Rénovation',
                   'Autre' => 'Autre'
               ],
-              'choices_as_values' => true,
             ])
             ->add('budget', TextType::class, [
               'attr'  => [

@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route,
 
 class ContactController extends AppBundleBaseController
 {
-  var $contact_form;
 
   /**
    * @Route("/contact", name="contact")
@@ -17,15 +16,15 @@ class ContactController extends AppBundleBaseController
    */
   public function contactAction(Request $request){
 
-    $this->contact_form = $this->createForm(ContactType::class);
+    $contact_form = $this->createForm(ContactType::class);
 
-    $this->contact_form->handleRequest($request);
+    $contact_form->handleRequest($request);
 
-    if ($this->contact_form->isSubmitted() && $this->contact_form->isValid()) {
+    if ($contact_form->isSubmitted() && $contact_form->isValid()) {
 
-      $data = $this->contact_form->getData();
+      $data = $contact_form->getData();
 
-      $this->sendMail($data);
+      $this->sendMail($data, $contact_form);
 
       return $this->redirectToRoute('contact_thanks', array(), 301);
     }
@@ -33,7 +32,7 @@ class ContactController extends AppBundleBaseController
     return $this->render(
       'AppBundle::contact.html.twig',
       [
-        'contactForm' => $this->contact_form->createView()
+        'contactForm' => $contact_form->createView()
       ]
     );
   }
@@ -49,8 +48,7 @@ class ContactController extends AppBundleBaseController
     );
   }
 
-  private function sendMail($data){
-
+  private function sendMail($data, $contact_form){
 
     $mail = \Swift_Message::newInstance()
       ->setSubject('Demande provenant du site Construct-Tim.be')
@@ -65,9 +63,9 @@ class ContactController extends AppBundleBaseController
       )
     ;
 
-    if($this->contact_form['attachement']->getData()){
+    if($contact_form['attachement']->getData()){
 
-        $attachement = $this->contact_form['attachement']->getData();
+        $attachement = $contact_form['attachement']->getData();
 
         $fileName = md5(uniqid()).'.'.$attachement->getClientOriginalExtension();
 

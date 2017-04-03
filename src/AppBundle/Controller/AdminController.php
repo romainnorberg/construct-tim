@@ -15,7 +15,7 @@ class AdminController extends AppBundleBaseController
    * @Route("/admin/upload", name="admin_upload")
    * @Method({"POST"})
    */
-  public function UploadAction(Request $request){
+  public function uploadAction(Request $request){
 
     $this->adminFileForm = $this->createForm(AdminFileUploadType::class);
 

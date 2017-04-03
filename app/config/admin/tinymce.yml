@@ -1,6 +1,6 @@
 stfalcon_tinymce:
     selector: ".tinymce"
-    language: %locale%
+    language: "%locale%"
     tinymce_buttons:
         imageupload:
             title: "Upload image"
