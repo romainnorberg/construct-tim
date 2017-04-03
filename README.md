@@ -1,7 +1,7 @@
 Construct-tim.be
 ================
 
-Open source client website based on Symfony 2.8
+Open source client website based on Symfony 3.x
 
 ### Status
 [![Build Status](https://travis-ci.org/romainnorberg/construct-tim.svg?branch=master)](https://travis-ci.org/romainnorberg/construct-tim)
@@ -9,7 +9,7 @@ Open source client website based on Symfony 2.8
 
 ### Env vars
 
-Environment production vars are stored in a remote file, read more: https://help.fortrabbit.com/secrets
+Environment production vars are stored on instance configuration, read more: https://www.clever-cloud.com/doc/admin-console/environment-variables/
 
 ### First installation
 
