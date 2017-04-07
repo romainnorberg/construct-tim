@@ -3,9 +3,9 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Method,
-    Symfony\Component\HttpFoundation\Request,
-    AppBundle\Form\Type\ContactType;
+  Sensio\Bundle\FrameworkExtraBundle\Configuration\Method,
+  Symfony\Component\HttpFoundation\Request,
+  AppBundle\Form\Type\ContactType;
 
 class ContactController extends AppBundleBaseController
 {
@@ -14,7 +14,8 @@ class ContactController extends AppBundleBaseController
    * @Route("/contact", name="contact")
    * @Method({"GET","POST"})
    */
-  public function contactAction(Request $request){
+  public function contactAction(Request $request)
+  {
 
     $contact_form = $this->createForm(ContactType::class);
 
@@ -32,7 +33,7 @@ class ContactController extends AppBundleBaseController
     return $this->render(
       'AppBundle::contact.html.twig',
       [
-        'contactForm' => $contact_form->createView()
+        'contactForm' => $contact_form->createView(),
       ]
     );
   }
@@ -41,40 +42,40 @@ class ContactController extends AppBundleBaseController
    * @Route("/contact_thanks", name="contact_thanks")
    * @Method({"GET"})
    */
-  public function contactThanksAction(Request $request){
+  public function contactThanksAction()
+  {
 
     return $this->render(
       'AppBundle::contact_thanks.html.twig'
     );
   }
 
-  private function sendMail($data, $contact_form){
+  private function sendMail($data, $contact_form)
+  {
 
     $mail = \Swift_Message::newInstance()
       ->setSubject('Demande provenant du site Construct-Tim.be')
       ->setFrom('bot@construct-tim.be')
       ->setTo('romainnorberg@gmail.com')
       ->setBody(
-          $this->renderView(
-              'AppBundle::partials/contact/_mail.html.twig',
-              array('data' => $data)
-          ),
-          'text/html'
-      )
-    ;
+        $this->renderView(
+          'AppBundle::partials/contact/_mail.html.twig',
+          array('data' => $data)
+        ),
+        'text/html'
+      );
 
-    if($contact_form['attachement']->getData()){
+    if ($contact_form['attachement']->getData()) {
 
-        $attachement = $contact_form['attachement']->getData();
+      $attachement = $contact_form['attachement']->getData();
 
-        $fileName = md5(uniqid()).'.'.$attachement->getClientOriginalExtension();
+      $fileName = md5(uniqid()) . '.' . $attachement->getClientOriginalExtension();
 
-        $attachement_dir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/contact';
-        $attachement->move($attachement_dir, $fileName);
+      $attachement_dir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/contact';
+      $attachement->move($attachement_dir, $fileName);
 
-        $mail->attach(\Swift_Attachment::fromPath($attachement_dir.'/'.$fileName));
+      $mail->attach(\Swift_Attachment::fromPath($attachement_dir . '/' . $fileName));
     }
-
 
     $this->get('mailer')->send($mail);
   }

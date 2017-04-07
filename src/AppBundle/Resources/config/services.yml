@@ -1,0 +1,5 @@
+services:
+    app.twig.extension.loader:
+        class:        Twig_Extension_StringLoader
+        tags:
+             - { name: 'twig.extension' }

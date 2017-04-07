@@ -1,7 +1,7 @@
 imports:
     - { resource: services/ }
-
-parameters:
-#    parameter_name: value
+    - { resource: "@AppBundle/Resources/config/services.yml" }
 
 services:
+    serializer.mapping.cache.apcu:
+        class: Doctrine\Common\Cache\ApcuCache
