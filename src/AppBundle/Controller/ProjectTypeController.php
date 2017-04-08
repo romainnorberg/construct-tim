@@ -13,7 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  *
  * @Route("/projets")
  */
-
 class ProjectTypeController extends Controller
 {
   /**
@@ -26,10 +25,13 @@ class ProjectTypeController extends Controller
    */
   public function showAction(ProjectType $project_type)
   {
+    $projects = $project_type->getProjects();
+
     return $this->render(
       'AppBundle:project:project_type_show.html.twig',
       [
-        'project_type' => $project_type
+        'project_type' => $project_type,
+        'projects'     => $projects,
       ]
     );
   }

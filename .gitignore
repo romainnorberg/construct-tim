@@ -13,7 +13,6 @@
 /node_modules
 /web/vendor
 /web/uploads/*
-!/web/uploads/contact/.gitkeep
 !/web/cache/.gitkeep
 
 **/.sass-cache/*
