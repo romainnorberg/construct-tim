@@ -31,7 +31,6 @@ class AppKernel extends Kernel
 
             // medias
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
 
