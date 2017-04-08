@@ -2,8 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\TimestampableTrait;
 use Doctrine\ORM\Mapping as ORM,
-    Gedmo\Mapping\Annotation as Gedmo;
+  Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Page
@@ -14,324 +15,272 @@ use Doctrine\ORM\Mapping as ORM,
  */
 class Page
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="guid")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="UUID")
-     */
-    private $id;
+  use TimestampableTrait;
 
-    /**
-     * @var PageCategory
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PageCategory")
-     * @ORM\JoinColumn(name="page_category_id", referencedColumnName="id")
-     */
-    private $page_category;
+  /**
+   * @var string
+   *
+   * @ORM\Column(type="guid")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="UUID")
+   */
+  private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
+  /**
+   * @var PageCategory
+   *
+   * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PageCategory")
+   * @ORM\JoinColumn(name="page_category_id", referencedColumnName="id")
+   */
+  private $page_category;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="name", type="string", length=255)
+   */
+  private $name;
 
-    /**
-     * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(length=128, unique=true)
-     */
-    private $slug;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="title", type="string", length=255)
+   */
+  private $title;
 
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="content", type="text", nullable=true)
-     */
-    private $content;
+  /**
+   * @Gedmo\Slug(fields={"title"})
+   * @ORM\Column(length=128, unique=true)
+   */
+  private $slug;
 
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
-     */
-    private $description;
+  /**
+   * @var text
+   *
+   * @ORM\Column(name="content", type="text", nullable=true)
+   */
+  private $content;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
-     */
-    private $keywords;
+  /**
+   * @var text
+   *
+   * @ORM\Column(name="description", type="text", nullable=true)
+   */
+  private $description;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="active", type="boolean")
-     */
-    private $active;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
+   */
+  private $keywords;
 
-    /**
-     * @var \DateTime $created
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
+  /**
+   * @var boolean
+   *
+   * @ORM\Column(name="active", type="boolean")
+   */
+  private $active;
 
-    /**
-     * @var \DateTime $updated
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updated;
+  /**
+   * Get id
+   *
+   * @return integer
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Set name
+   *
+   * @param string $name
+   *
+   * @return Page
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Page
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get name
+   *
+   * @return string
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  /**
+   * Set title
+   *
+   * @param string $title
+   *
+   * @return Page
+   */
+  public function setTitle($title)
+  {
+    $this->title = $title;
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Page
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get title
+   *
+   * @return string
+   */
+  public function getTitle()
+  {
+    return $this->title;
+  }
 
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+  /**
+   * Set slug
+   *
+   * @param string $slug
+   *
+   * @return Page
+   */
+  public function setSlug($slug)
+  {
+    $this->slug = $slug;
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Page
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get slug
+   *
+   * @return string
+   */
+  public function getSlug()
+  {
+    return $this->slug;
+  }
 
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+  /**
+   * Set content
+   *
+   * @param string $content
+   *
+   * @return Page
+   */
+  public function setContent($content)
+  {
+    $this->content = $content;
 
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return Page
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get content
+   *
+   * @return string
+   */
+  public function getContent()
+  {
+    return $this->content;
+  }
 
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
+  /**
+   * Set description
+   *
+   * @param string $description
+   *
+   * @return Page
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Page
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get description
+   *
+   * @return string
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+  /**
+   * Set keywords
+   *
+   * @param string $keywords
+   *
+   * @return Page
+   */
+  public function setKeywords($keywords)
+  {
+    $this->keywords = $keywords;
 
-    /**
-     * Set keywords
-     *
-     * @param string $keywords
-     * @return Page
-     */
-    public function setKeywords($keywords)
-    {
-        $this->keywords = $keywords;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get keywords
+   *
+   * @return string
+   */
+  public function getKeywords()
+  {
+    return $this->keywords;
+  }
 
-    /**
-     * Get keywords
-     *
-     * @return string
-     */
-    public function getKeywords()
-    {
-        return $this->keywords;
-    }
+  /**
+   * Set active
+   *
+   * @param boolean $active
+   *
+   * @return Page
+   */
+  public function setActive($active)
+  {
+    $this->active = $active;
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Page
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get active
+   *
+   * @return boolean
+   */
+  public function getActive()
+  {
+    return $this->active;
+  }
 
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
+  /**
+   * Set page_category
+   *
+   * @param \AppBundle\Entity\PageCategory $pageCategory
+   *
+   * @return Page
+   */
+  public function setPageCategory(\AppBundle\Entity\PageCategory $pageCategory = null)
+  {
+    $this->page_category = $pageCategory;
 
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Page
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
+    return $this;
+  }
 
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
-     * Set active
-     *
-     * @param boolean $active
-     * @return Page
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
-
-        return $this;
-    }
-
-    /**
-     * Get active
-     *
-     * @return boolean 
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * Set page_category
-     *
-     * @param \AppBundle\Entity\PageCategory $pageCategory
-     * @return Page
-     */
-    public function setPageCategory(\AppBundle\Entity\PageCategory $pageCategory = null)
-    {
-        $this->page_category = $pageCategory;
-
-        return $this;
-    }
-
-    /**
-     * Get page_category
-     *
-     * @return \AppBundle\Entity\PageCategory 
-     */
-    public function getPageCategory()
-    {
-        return $this->page_category;
-    }
+  /**
+   * Get page_category
+   *
+   * @return \AppBundle\Entity\PageCategory
+   */
+  public function getPageCategory()
+  {
+    return $this->page_category;
+  }
 }

@@ -2,8 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM,
-    Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use AppBundle\Entity\Traits\TimestampableTrait;
 
 /**
  * Post
@@ -14,294 +15,242 @@ use Doctrine\ORM\Mapping as ORM,
  */
 class Post
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="guid")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="UUID")
-     */
-    private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
+  use TimestampableTrait;
 
-    /**
-     * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(length=128, unique=true)
-     */
-    private $slug;
+  /**
+   * @var string
+   *
+   * @ORM\Column(type="guid")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="UUID")
+   */
+  private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
-     */
-    private $description;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="title", type="string", length=255)
+   */
+  private $title;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
-     */
-    private $keywords;
+  /**
+   * @Gedmo\Slug(fields={"title"})
+   * @ORM\Column(length=128, unique=true)
+   */
+  private $slug;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text", nullable=true)
-     */
-    private $content;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="description", type="string", length=255, nullable=true)
+   */
+  private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="labels", type="string", length=255, nullable=true)
-     */
-    private $labels;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
+   */
+  private $keywords;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="active", type="boolean")
-     */
-    private $active;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="content", type="text", nullable=true)
+   */
+  private $content;
 
-    /**
-     * @var \DateTime $created
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="labels", type="string", length=255, nullable=true)
+   */
+  private $labels;
 
-    /**
-     * @var \DateTime $updated
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updated;
+  /**
+   * @var bool
+   *
+   * @ORM\Column(name="active", type="boolean")
+   */
+  private $active;
 
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Get id
+   *
+   * @return integer
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Post
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
+  /**
+   * Set title
+   *
+   * @param string $title
+   *
+   * @return Post
+   */
+  public function setTitle($title)
+  {
+    $this->title = $title;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+  /**
+   * Get title
+   *
+   * @return string
+   */
+  public function getTitle()
+  {
+    return $this->title;
+  }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Post
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
+  /**
+   * Set slug
+   *
+   * @param string $slug
+   *
+   * @return Post
+   */
+  public function setSlug($slug)
+  {
+    $this->slug = $slug;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+  /**
+   * Get slug
+   *
+   * @return string
+   */
+  public function getSlug()
+  {
+    return $this->slug;
+  }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Post
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+  /**
+   * Set description
+   *
+   * @param string $description
+   *
+   * @return Post
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+  /**
+   * Get description
+   *
+   * @return string
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 
-    /**
-     * Set keywords
-     *
-     * @param string $keywords
-     * @return Post
-     */
-    public function setKeywords($keywords)
-    {
-        $this->keywords = $keywords;
+  /**
+   * Set keywords
+   *
+   * @param string $keywords
+   *
+   * @return Post
+   */
+  public function setKeywords($keywords)
+  {
+    $this->keywords = $keywords;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get keywords
-     *
-     * @return string
-     */
-    public function getKeywords()
-    {
-        return $this->keywords;
-    }
+  /**
+   * Get keywords
+   *
+   * @return string
+   */
+  public function getKeywords()
+  {
+    return $this->keywords;
+  }
 
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return Post
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
+  /**
+   * Set content
+   *
+   * @param string $content
+   *
+   * @return Post
+   */
+  public function setContent($content)
+  {
+    $this->content = $content;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
+  /**
+   * Get content
+   *
+   * @return string
+   */
+  public function getContent()
+  {
+    return $this->content;
+  }
 
-    /**
-     * Set labels
-     *
-     * @param string $labels
-     * @return Post
-     */
-    public function setLabels($labels)
-    {
-        $this->labels = $labels;
+  /**
+   * Set labels
+   *
+   * @param string $labels
+   *
+   * @return Post
+   */
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get labels
-     *
-     * @return string
-     */
-    public function getLabels()
-    {
-        return $this->labels;
-    }
+  /**
+   * Get labels
+   *
+   * @return string
+   */
+  public function getLabels()
+  {
+    return $this->labels;
+  }
 
-    /**
-     * Set active
-     *
-     * @param boolean $active
-     * @return Post
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
+  /**
+   * Set active
+   *
+   * @param boolean $active
+   *
+   * @return Post
+   */
+  public function setActive($active)
+  {
+    $this->active = $active;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get active
-     *
-     * @return boolean
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Post
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Post
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
+  /**
+   * Get active
+   *
+   * @return boolean
+   */
+  public function getActive()
+  {
+    return $this->active;
+  }
 }

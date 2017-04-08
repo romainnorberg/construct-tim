@@ -2,8 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\TimestampableTrait;
 use Doctrine\ORM\Mapping as ORM,
-    Gedmo\Mapping\Annotation as Gedmo;
+  Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * PageCategory
@@ -14,150 +15,92 @@ use Doctrine\ORM\Mapping as ORM,
  */
 class PageCategory
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="guid")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="UUID")
-     */
-    private $id;
+  use TimestampableTrait;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
+  /**
+   * @var string
+   *
+   * @ORM\Column(type="guid")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="UUID")
+   */
+  private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
-     */
-    private $description;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="name", type="string", length=255)
+   */
+  private $name;
 
-    /**
-     * @var \DateTime $created
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
-    /**
-     * @var \DateTime $updated
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updated;
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="description", type="text", nullable=true)
+   */
+  private $description;
 
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Get id
+   *
+   * @return integer
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return PageCategory
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
+  /**
+   * Set name
+   *
+   * @param string $name
+   *
+   * @return PageCategory
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+  /**
+   * Get name
+   *
+   * @return string
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
 
-    public function __toString()
-    {
-       return $this->name;
-    }
+  public function __toString()
+  {
+    return $this->name;
+  }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return PageCategory
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+  /**
+   * Set description
+   *
+   * @param string $description
+   *
+   * @return PageCategory
+   */
+  public function setDescription($description)
+  {
+    $this->description = $description;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return PageCategory
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return PageCategory
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
+  /**
+   * Get description
+   *
+   * @return string
+   */
+  public function getDescription()
+  {
+    return $this->description;
+  }
 }

@@ -7,6 +7,14 @@ services:
         calls:
             - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
 
+    admin.project:
+        class: AppBundle\Admin\ProjectAdmin
+        arguments: [~, AppBundle\Entity\Project, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Projet }
+        calls:
+            - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
+
     admin.tinymce:
         class: AppBundle\Admin\TinymceAdmin
         arguments: [~, ~, ~]
