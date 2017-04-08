@@ -6,6 +6,8 @@ Open source client website based on Symfony 3.x
 ### Status
 [![Build Status](https://travis-ci.org/romainnorberg/construct-tim.svg?branch=master)](https://travis-ci.org/romainnorberg/construct-tim)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b175d406-8e1f-4c4c-9c3c-c86ad271e319/mini.png)](https://insight.sensiolabs.com/projects/b175d406-8e1f-4c4c-9c3c-c86ad271e319)
+[![codecov](https://codecov.io/gh/romainnorberg/construct-tim/branch/master/graph/badge.svg)](https://codecov.io/gh/romainnorberg/construct-tim)
+
 
 ### Env vars
 
@@ -30,7 +32,3 @@ Optional:
   - cp tests/pre-commit-dist .git/hooks/pre-commit
   - chmod a+x .git/hooks/pre-commit
 
-### Performance
-
-- composer dump-autoload --optimize
--

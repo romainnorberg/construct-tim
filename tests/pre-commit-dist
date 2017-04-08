@@ -1,7 +1,7 @@
 #!/bin/bash
 
 exec < /dev/tty
-sudo phpunit
+./vendor/phpunit/phpunit/phpunit
 #Get the last processes exit code
 rc=$?
 if [[ $rc != 0 ]] ; then
@@ -12,7 +12,7 @@ if [[ $rc != 0 ]] ; then
     elif [ "$YN" != "y" ]; then
         exit $rc;
     fi
-    sudo phpunit --verbose
+    ./vendor/phpunit/phpunit/phpunit --verbose
 fi
 
 exit $rc;

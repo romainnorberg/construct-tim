@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * project controller.
  *
- * @Route("/projects")
+ * @Route("/projets")
  */
 
 class ProjectTypeController extends Controller
