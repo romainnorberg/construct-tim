@@ -5,3 +5,9 @@ imports:
 services:
     serializer.mapping.cache.apcu:
         class: Doctrine\Common\Cache\ApcuCache
+
+    app.twig_extension:
+        class:        AppBundle\Twig\RawDescriptionExtension
+        public:       false
+        tags:
+            - { name: twig.extension }
