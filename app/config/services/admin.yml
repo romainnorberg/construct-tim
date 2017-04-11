@@ -15,6 +15,30 @@ services:
         calls:
             - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
 
+    admin.page:
+        class: AppBundle\Admin\PageAdmin
+        arguments: [~, AppBundle\Entity\Page, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Page }
+        calls:
+            - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
+
+    admin.page_category:
+        class: AppBundle\Admin\PageCategoryAdmin
+        arguments: [~, AppBundle\Entity\PageCategory, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Page catégorie }
+        calls:
+            - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
+
+    admin.post:
+        class: AppBundle\Admin\PostAdmin
+        arguments: [~, AppBundle\Entity\Post, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Post }
+        calls:
+            - [ setTemplate, [edit, AppBundle::admin/edit.html.twig]]
+
     admin.tinymce:
         class: AppBundle\Admin\TinymceAdmin
         arguments: [~, ~, ~]

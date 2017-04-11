@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\AdminFileUploadType;
 use Cocur\Slugify\Slugify;
@@ -16,6 +17,7 @@ class AdminController extends AppBundleBaseController
    */
   public function uploadAction(Request $request)
   {
+    // TODO: refactor
     $admin_file_form = $this->createForm(AdminFileUploadType::class);
 
     $admin_file_form->handleRequest($request);
@@ -37,10 +39,9 @@ class AdminController extends AppBundleBaseController
       $thumbnail = $image->thumbnail(new \Imagine\Image\Box(800, 800));
       $thumbnail->save($file_path);
 
-      // upload to bucket
-
-      return $this->redirectToRoute('admin_upload');
-
+      return new JsonResponse([
+        'filepath' => '/uploads/medias/' . $fileName,
+      ]);
     }
 
     return $this->render(

@@ -1,32 +1,32 @@
 <h4 style="text-decoration:underline">Demande provenant du site Construct-Tim.be</h4>
 
-  <p><b>Name:</b>
+<p><b>Name:</b>
   {{ data.name }}</p>
 
-  <p><b>Email:</b>
+<p><b>Email:</b>
   <a href="mailto:{{ data.email }}" target="_blank">{{ data.email }}</a></p>
 
-  <p><b>Message:</b>
+<p><b>Message:</b>
   {{ data.message }}</p>
 
-  <p><b>Phone:</b>
+<p><b>Phone:</b>
   {{ data.phone }}</p>
 
-  <p><b>City:</b>
+<p><b>City:</b>
   {{ data.city }}</p>
 
-  <p><b>Request type:</b>
+<p><b>Request type:</b>
   {{ data.type }}</p>
 
-  <p><b>Request subject:</b>
+<p><b>Request subject:</b>
   {{ data.subject }}</p>
 
-  <p><b>Budget:</b>
+<p><b>Budget:</b>
   {{ data.budget }}</p>
 
-  <br><h4 style="text-decoration:underline">Request information</h4>
+<br><h4 style="text-decoration:underline">Request information</h4>
 
 
-  <p><b>Remote ip:</b> {{ app.request.server.get("REMOTE_ADDR") }}</p>
+<p><b>Remote ip:</b> {{ app.request.server.get("REMOTE_ADDR") }}</p>
 
-  <p><b>User agent:</b>{{ app.request.server.get('HTTP_USER_AGENT') }}</p>
+<p><b>User agent:</b>{{ app.request.server.get('HTTP_USER_AGENT') }}</p>

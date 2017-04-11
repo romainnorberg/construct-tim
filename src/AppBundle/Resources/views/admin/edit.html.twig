@@ -1,5 +1,12 @@
 {% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
 
+{% block stylesheets %}
+  {{ parent() }}
+
+  <link rel="stylesheet" href="{{ asset('built/app/css/admin.css') }}" />
+
+{% endblock %}
+
 {% block javascripts %}
   {{ parent() }}
 
@@ -9,4 +16,8 @@
 
 {% block form %}
   {{ parent() }}
+
+  {{ render(controller(
+  'AppBundle:Admin:upload'
+  )) }}
 {% endblock %}

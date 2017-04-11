@@ -29,6 +29,15 @@ module.exports = function(grunt) {
                 files: {
                     'web/built/app/css/fos_user.css': 'web/bundles/app/scss/fos_user.sass'
                 }
+            },
+            admin: {
+                options: {
+                    style: 'compressed',
+                    loadPath: 'web/vendor/bootstrap-sass/assets/stylesheets'
+                },
+                files: {
+                    'web/built/app/css/admin.css': 'web/bundles/app/scss/admin.sass'
+                }
             }
         },
         coffee: {
@@ -108,13 +117,6 @@ module.exports = function(grunt) {
             files: [
               {expand: true, flatten: true, src: ['web/vendor/bootstrap-sass/assets/fonts/bootstrap/*'], dest: 'web/built/app/fonts/bootstrap/', filter: 'isFile'}
             ]
-          },
-          plupload: {
-            files: [
-              {src: ['vendor/moxiecode/plupload/js/plupload.full.min.js'], dest: 'web/bundles/app/js/plupload.full.min.js'},
-              {src: ['vendor/moxiecode/plupload/js/Moxie.swf'], dest: 'web/bundles/app/js/Moxie.swf'},
-              {src: ['vendor/moxiecode/plupload/js/Moxie.xap'], dest: 'web/bundles/app/js/Moxie.xap'}
-            ]
           }
         }
     });
@@ -129,7 +131,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-modernizr");
 
     grunt.registerTask('default', ['buildCss', 'buildJs', 'assets:install']);
-    grunt.registerTask('buildCss', ['sass:dist', 'concat:css', 'sass:fos_user']);
+    grunt.registerTask('buildCss', ['sass:dist', 'concat:css', 'sass:fos_user', 'sass:admin']);
     grunt.registerTask('buildJs', ['modernizr:dist', 'coffee:compile', 'concat:js', 'uglify']);
-    grunt.registerTask('assets:install', ['symlink', 'copy:fonts', 'copy:plupload']);
+    grunt.registerTask('assets:install', ['symlink', 'copy:fonts']);
 };

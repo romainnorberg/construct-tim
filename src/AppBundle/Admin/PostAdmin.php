@@ -7,7 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin,
   Sonata\AdminBundle\Datagrid\DatagridMapper,
   Sonata\AdminBundle\Form\FormMapper;
 
-class ProjectAdmin extends AbstractAdmin
+class PostAdmin extends AbstractAdmin
 {
   protected function configureFormFields(FormMapper $formMapper)
   {
@@ -26,7 +26,8 @@ class ProjectAdmin extends AbstractAdmin
       ],
       'required' => false,
     ]);
-    $formMapper->add('project_type');
+    $formMapper->add('labels', 'text');
+    $formMapper->add('active');
   }
 
   protected function configureDatagridFilters(DatagridMapper $datagridMapper)

@@ -13,32 +13,32 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="guid")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="UUID")
-     */
-    protected $id;
+  /**
+   * @var string
+   *
+   * @ORM\Column(type="guid")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="UUID")
+   */
+  protected $id;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+   * Get id
+   *
+   * @return integer
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * for doctrine:fixtures:load
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
+  /**
+   * for doctrine:fixtures:load
+   */
+  public function setSalt($salt)
+  {
+    $this->salt = $salt;
 
-        return $this;
-    }
+    return $this;
+  }
 }

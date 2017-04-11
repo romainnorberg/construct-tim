@@ -11,16 +11,16 @@ class ContactControllerTest extends WebTestCase
   {
     $this->uri = 'contact';
   }
-  
+
   /**
    * @group form
    */
   public function testContact()
   {
-      $client = static::createClient();
+    $client = static::createClient();
 
-      $crawler = $client->request('GET', $this->uri);
+    $crawler = $client->request('GET', $this->uri);
 
-      $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    $this->assertEquals(200, $client->getResponse()->getStatusCode());
   }
 }

@@ -2,8 +2,8 @@
 
 {% block body %}
   <h1>Test resized with <code>images_small_thumb</code></h1>
-  <img src="{{ image | imagine_filter('images_small_thumb') }}" alt="" />
+  <img src="{{ image | imagine_filter('images_small_thumb') }}" alt=""/>
 
   <h1>Test resized with <code>images_medium_thumb</code></h1>
-  <img src="{{ image | imagine_filter('images_medium_thumb') }}" alt="" />
+  <img src="{{ image | imagine_filter('images_medium_thumb') }}" alt=""/>
 {% endblock %}

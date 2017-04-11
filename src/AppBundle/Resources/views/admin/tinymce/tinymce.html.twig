@@ -1,13 +1,10 @@
 {{ tinymce_init() }}
 
 <script>
-  var debug=true;
   function callback_tinymce_init(editor) {
-
   }
 
-  function tinymce_button_imageupload(){
-    log('call imageupload');
+  function tinymce_button_imageupload() {
 
     var imageuploadForm = $("#tinymce_fileform");
     var imageuploadInput = $("#tinymce_fileform input[type='file']");
@@ -15,34 +12,30 @@
     imageuploadInput.unbind();
     imageuploadInput.click();
 
-    imageuploadInput.change(function(){
-      log('change');
+    imageuploadInput.change(function () {
       if (files = imageuploadInput.prop('files')) {
-        if (files.length == 0) {
-          log('no file selected');
-        } else {
-          log('file(s) selected');
+        if (files.length != 0) {
 
           var formdata = (window.FormData) ? new FormData(imageuploadForm[0]) : null;
           var data = (formdata !== null) ? formdata : imageuploadForm.serialize();
 
           $.ajax({
-            url: imageuploadForm.attr('action'),
-            type: imageuploadForm.attr('method'),
+            url:         imageuploadForm.attr('action'),
+            type:        imageuploadForm.attr('method'),
             contentType: false,
             processData: false,
-            dataType: 'json',
-            data: data,
-            success: function (response) {
-              log(response);
+            dataType:    'json',
+            data:        data,
+            success:     function (response) {
+              tinymce.activeEditor.insertContent('<img alt="" src="' + response.filepath + '"/>');
+
+            },
+            always:      function () {
+              imageuploadInput.unbind();
             }
           });
         }
       }
     });
-  }
-
-  function log(t){
-    if(debug) console.log(t);
   }
 </script>

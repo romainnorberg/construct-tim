@@ -28,6 +28,7 @@ trait TimestampableTrait
    * Set created
    *
    * @param \DateTime $created
+   *
    * @return Post
    */
   public function setCreated($created)
@@ -51,6 +52,7 @@ trait TimestampableTrait
    * Set updated
    *
    * @param \DateTime $updated
+   *
    * @return Post
    */
   public function setUpdated($updated)

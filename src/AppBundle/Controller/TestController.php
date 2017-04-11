@@ -17,13 +17,13 @@ class TestController extends Controller
   {
 
     $projectType = $this->getDoctrine()
-        ->getRepository('AppBundle:ProjectType')
-        ->find('23e64e10-1767-11e6-a73b-080027716959');
+      ->getRepository('AppBundle:ProjectType')
+      ->find('23e64e10-1767-11e6-a73b-080027716959');
 
     if (!$projectType) {
-        throw $this->createNotFoundException(
-            'No product found for id '.$productId
-        );
+      throw $this->createNotFoundException(
+        'No product found for id ' . $productId
+      );
     }
 
     $image = $projectType->getImageName();
@@ -31,7 +31,7 @@ class TestController extends Controller
     return $this->render(
       'AppBundle::test.html.twig',
       [
-        'image' => $image
+        'image' => $image,
       ]
     );
   }
