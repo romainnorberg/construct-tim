@@ -1,6 +1,6 @@
 [
   {
-    "bucket_host": ${BUCKET_DEFAULT},
+    "bucket_host": "${BUCKET_DEFAULT}",
     "folder": "/web/uploads"
   }
 ]
