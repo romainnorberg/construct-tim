@@ -1,6 +1,6 @@
 [
   {
-    "bucket_host": "${BUCKET_DEFAULT}",
+    "bucket_host": "bucket-7d05e5b9-317c-44ac-8a76-359097d56188-fsbucket.services.clever-cloud.com",
     "folder": "/web/uploads"
   }
 ]
