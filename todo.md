@@ -1,3 +1,4 @@
-- [ ] matching des tables
-- [ ] récuperation des données
-- [ ] ...
+- [ ] [content] matching des tables
+- [ ] [content] récuperation des données
+- [ ] [project] génération des miniatures
+- [ ] changer le bucket media
