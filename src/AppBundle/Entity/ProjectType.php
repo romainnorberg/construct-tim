@@ -78,14 +78,14 @@ class ProjectType
    *
    * @var File
    */
-  private $imageFile;
+  private $image_file;
 
   /**
    * @ORM\Column(type="string", length=255, nullable=true)
    *
    * @var string
    */
-  private $imageName;
+  private $image_name;
 
   /**
    * @var ArrayCollection
@@ -137,7 +137,15 @@ class ProjectType
   }
 
   /**
-   * Set page_title
+   * Constructor
+   */
+  public function __construct()
+  {
+    $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+  }
+
+  /**
+   * Set pageTitle
    *
    * @param string $pageTitle
    *
@@ -151,7 +159,7 @@ class ProjectType
   }
 
   /**
-   * Get page_title
+   * Get pageTitle
    *
    * @return string
    */
@@ -257,87 +265,27 @@ class ProjectType
   }
 
   /**
-   * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
-   * of 'UploadedFile' is injected into this setter to trigger the  update. If this
-   * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
-   * must be able to accept an instance of 'File' as the bundle will inject one here
-   * during Doctrine hydration.
+   * Set imageName
    *
-   * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+   * @param string $imageName
    *
    * @return ProjectType
    */
-  public function setImageFile(File $image = null)
-  {
-    $this->imageFile = $image;
-
-    if ($image) {
-      // It is required that at least one field changes if you are using doctrine
-      // otherwise the event listeners won't be called and the file is lost
-      $this->updated = new \DateTime('now');
-    }
-
-    return $this;
-  }
-
-  /**
-   * @return File
-   */
-  public function getImageFile()
-  {
-    return $this->imageFile;
-  }
-
-  /**
-   * @param string $imageName
-   *
-   * @return Product
-   */
   public function setImageName($imageName)
   {
-    $this->imageName = $imageName;
+    $this->image_name = $imageName;
 
     return $this;
   }
 
   /**
+   * Get imageName
+   *
    * @return string
    */
   public function getImageName()
   {
-    return $this->imageName;
-  }
-
-  /**
-   * Set projects
-   *
-   * @param \AppBundle\Entity\Project $projects
-   *
-   * @return ProjectType
-   */
-  public function setProjects(\AppBundle\Entity\Project $projects = null)
-  {
-    $this->projects = $projects;
-
-    return $this;
-  }
-
-  /**
-   * Get projects
-   *
-   * @return \AppBundle\Entity\Project
-   */
-  public function getProjects()
-  {
-    return $this->projects;
-  }
-
-  /**
-   * Constructor
-   */
-  public function __construct()
-  {
-    $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+    return $this->image_name;
   }
 
   /**
@@ -362,5 +310,15 @@ class ProjectType
   public function removeProject(\AppBundle\Entity\Project $project)
   {
     $this->projects->removeElement($project);
+  }
+
+  /**
+   * Get projects
+   *
+   * @return \Doctrine\Common\Collections\Collection
+   */
+  public function getProjects()
+  {
+    return $this->projects;
   }
 }

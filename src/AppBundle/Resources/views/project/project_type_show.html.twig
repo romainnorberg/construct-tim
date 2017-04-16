@@ -1,7 +1,13 @@
 {% extends 'AppBundle::base_project.html.twig' %}
 
 {% block content %}
-  <div>Carousel</div>
+  <section class="carousel slide" id="ZCarousel">
+    <div class="carousel-inner">
+      <div class="item active">
+        <div class="fill" style="background-image:url('{{ upload.image_path ~ project_type.imageName }}');"></div>
+      </div>
+    </div>
+  </section>
 
   <section class="content html">
     <div class="container">
