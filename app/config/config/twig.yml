@@ -1,0 +1,10 @@
+twig:
+    globals:
+        metas:
+            title: "Entrepreneur général en bâtiment | Construct-Tim"
+            description: "Construct-Tim s’inscrit comme un prestataire unique au service de votre projet de construction, rénovation et extension d’habitation."
+            keywords: "construction, rénovation, batîments, Extensions de bâtiment, entrepreneur, namur, qualité"
+            author: "Construct-tim Timothée Wery"
+        upload:
+            image_path: "/uploads/images/"
+            file_path: "/uploads/medias/"

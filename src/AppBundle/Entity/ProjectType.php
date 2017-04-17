@@ -137,7 +137,15 @@ class ProjectType
   }
 
   /**
-   * Set page_title
+   * Constructor
+   */
+  public function __construct()
+  {
+    $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+  }
+
+  /**
+   * Set pageTitle
    *
    * @param string $pageTitle
    *
@@ -151,7 +159,7 @@ class ProjectType
   }
 
   /**
-   * Get page_title
+   * Get pageTitle
    *
    * @return string
    */
@@ -270,16 +278,13 @@ class ProjectType
   public function setImageFile(File $image = null)
   {
     $this->imageFile = $image;
-
     if ($image) {
       // It is required that at least one field changes if you are using doctrine
       // otherwise the event listeners won't be called and the file is lost
       $this->updated = new \DateTime('now');
     }
-
     return $this;
   }
-
   /**
    * @return File
    */
@@ -289,9 +294,11 @@ class ProjectType
   }
 
   /**
+   * Set imageName
+   *
    * @param string $imageName
    *
-   * @return Product
+   * @return ProjectType
    */
   public function setImageName($imageName)
   {
@@ -301,43 +308,13 @@ class ProjectType
   }
 
   /**
+   * Get imageName
+   *
    * @return string
    */
   public function getImageName()
   {
     return $this->imageName;
-  }
-
-  /**
-   * Set projects
-   *
-   * @param \AppBundle\Entity\Project $projects
-   *
-   * @return ProjectType
-   */
-  public function setProjects(\AppBundle\Entity\Project $projects = null)
-  {
-    $this->projects = $projects;
-
-    return $this;
-  }
-
-  /**
-   * Get projects
-   *
-   * @return \AppBundle\Entity\Project
-   */
-  public function getProjects()
-  {
-    return $this->projects;
-  }
-
-  /**
-   * Constructor
-   */
-  public function __construct()
-  {
-    $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
   }
 
   /**
@@ -362,5 +339,15 @@ class ProjectType
   public function removeProject(\AppBundle\Entity\Project $project)
   {
     $this->projects->removeElement($project);
+  }
+
+  /**
+   * Get projects
+   *
+   * @return \Doctrine\Common\Collections\Collection
+   */
+  public function getProjects()
+  {
+    return $this->projects;
   }
 }

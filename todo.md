@@ -1,4 +1,4 @@
 - [ ] [content] matching des tables
 - [ ] [content] récuperation des données
 - [ ] [project] génération des miniatures
-- [ ] changer le bucket media
+- [ ] http2
