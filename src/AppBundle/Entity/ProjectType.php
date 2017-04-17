@@ -78,14 +78,14 @@ class ProjectType
    *
    * @var File
    */
-  private $image_file;
+  private $imageFile;
 
   /**
    * @ORM\Column(type="string", length=255, nullable=true)
    *
    * @var string
    */
-  private $image_name;
+  private $imageName;
 
   /**
    * @var ArrayCollection
@@ -302,7 +302,7 @@ class ProjectType
    */
   public function setImageName($imageName)
   {
-    $this->image_name = $imageName;
+    $this->imageName = $imageName;
 
     return $this;
   }
@@ -314,7 +314,7 @@ class ProjectType
    */
   public function getImageName()
   {
-    return $this->image_name;
+    return $this->imageName;
   }
 
   /**
